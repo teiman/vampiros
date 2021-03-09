@@ -52,8 +52,8 @@ var Eventos = (function(){
         },
         comer_vagabundo_callejon:function(){
             Mundo.get().policia_en_callejon = true;
-            Jugador.deltaComida(20);
-            Mundo.deltaInfectados(1);
+            Jugador.deltaComida(20);        
+            Mundo.nuevoInfectado();
             Jugador.get().sucio = true;//comer el vagabundo salpica tus ropas de sangre
         },
         plaza_callejon_policia: function(){
@@ -80,6 +80,17 @@ var Eventos = (function(){
             //Reseteas jugador y mundo
             Mundo.renacer();
             Jugador.renacer();
+        },
+        nido:function(){
+            if(!Jugador.get().nuevo_amigo){
+                var v = Mundo.getInfectadoEnEspera();
+
+                if(v){
+                    Jugador.get().nuevo_amigo = v;
+                    v.render();
+                    Pildoras.moverAEstado("recibir_infectado");
+                }
+            }
         }
     };
 

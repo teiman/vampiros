@@ -5,8 +5,8 @@ var Mundo = (function(){
 
     var Base = {
         policia_en_callejon: false,
-        infectados:0,
-        hora:0    //  0-5 => noche, 5-8=>amanecer, 8->18 => dia, 18-19=>anochecer,  19-14=>noche
+        hora:0,    //  0-5 => noche, 5-8=>amanecer, 8->18 => dia, 18-19=>anochecer,  19-14=>noche
+        //vampiros: {}  no lo incluimos, sino al reiniciar se perderia esta informacion
     };
 
     var Mundo = {};
@@ -16,19 +16,21 @@ var Mundo = (function(){
     }
     
     function iniciarMundo(){
+        logme("iniciarMundo","Se ha reiniciado el mundo con los valores por defecto");
+
         for (var propiedad in Base) {
             if (Base.hasOwnProperty(propiedad)) {
                 Mundo[propiedad] =  Base[propiedad];
             }
         }
+
+        //Si no se ha inicializado antes, lo inicializamos ahora 
+        if(Mundo['vampiros'] === undefined){
+            logme("iniciarMundo","Inicializando tabla de vampiros");
+            Mundo['vampiros'] = {};
+        }
     }
 
-    function deltaInfectados(delta){
-        Jugador.infectados = Jugador.infectados + delta;
-        if(Jugador.infectados<0){
-            Jugador.infectados = 0;
-        }    
-    }
 
     function avanzarHora(){
         Mundo.hora = Mundo.hora + 0.5;
@@ -78,6 +80,39 @@ var Mundo = (function(){
         return false;
     }
 
+    function indexarVampiro(v){
+        var key = v.KEY;
+
+        Mundo.vampiros[key] = v;
+    }
+
+    function nuevoInfectado(){
+        logme('nuevoInfectado',"Creando aspirante..");
+
+        var v = Vampiro.create();
+        if(v) v.render();
+    }
+
+    function getInfectadoEnEspera(){
+        logme('getInfectadoEnEspera',"Buscando aspirantes..");
+
+        var vampiros = Mundo.vampiros;
+        for (var propiedad in vampiros) {
+            if (vampiros.hasOwnProperty(propiedad)) {
+                var v =  Mundo.vampiros[propiedad];
+                if( !v.presentado ){
+                    logme('getInfectadoEnEspera',"encontrado vampiro para presentar..");
+                    v.presentado = true;
+                    return v;
+                }
+
+            }
+        }
+        logme('getInfectadoEnEspera',"no se ha encontrado ningun aspirante");
+        return null;
+    }
+
+
     function get(){
         return Mundo;
     }
@@ -86,12 +121,14 @@ var Mundo = (function(){
     iniciarMundo();
 
     return {
+        getInfectadoEnEspera:getInfectadoEnEspera,
+        nuevoInfectado:nuevoInfectado,
+        indexarVampiro:indexarVampiro,
         renacer:iniciarMundo,
         esSeguroLuz:esSeguroLuz,
         esLuzLetal:esLuzLetal,
         getHoraDesc:getHoraDesc,
         avanzarHora:avanzarHora,
-        deltaInfectados:deltaInfectados,
         get:get
     };
 

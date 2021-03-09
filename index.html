@@ -11,6 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 
 <script src="js/class/randomnames.class.js" type="text/javascript"></script>
+<script src="js/class/vampiro.class.js" type="text/javascript"></script>
 <script src="js/class/condicion.class.js" type="text/javascript"></script>
 <script src="js/class/mundo.class.js" type="text/javascript"></script>
 <script src="js/class/jugador.class.js" type="text/javascript"></script>
@@ -96,8 +97,8 @@
 </div>
 
 <div class="pildora ocu" data-estado="plaza">
-    <h2>Caminando por la ciudad.</h2>
-    <p>Llegas a la plaza del ayuntamiento. Hay alguna gente en los bares, o caminando por las aceras con prisa. Ves vagabundos en los callejones. Es una noche fria y tranquila.</p>
+    <h2>La ciudad.</h2>
+    <p>Caminas por las calles, cruzando con la gente. Hay alguna gente en los bares, o caminando por las aceras con prisa. Ves vagabundos en los callejones. Es una noche fria y tranquila.</p>
     <a data-next="plaza_callejon">Ir al callejon</a> <br>
     <a data-next="plaza_bar">‍Entrar en un bar</a> <br>
     <a data-next="plaza_portal">Esconderse dentro de un portal</a> <br>
@@ -114,7 +115,7 @@
 <div class="pildora ocu" data-estado="comer_vagabundo_callejon">
     <p>Absorves la vida del vagabundo. Cuando acabas el cuerpo del vagabundo se arruga. Lo tiras sobre la basura.</p>
     <p>La sangre agudiza tus sentidos vampiricos. Cada vida en varios kilometros de distancia se te hace presente. Eres consciente de su respiración, del palpitar de sus corazones.</p>
-    <p>Y entonces la vision se apaga de nuevo. Solo eres consciente del callejón, y ahora te da asco, decides volver a la plaza.</p>
+    <p>Y entonces la vision se apaga de nuevo. Solo eres consciente del callejón, y ahora te da asco, decides volver a la calle.</p>
     <a data-next="plaza">‍continuar</a> <br>
 </div>
 
@@ -184,7 +185,7 @@
 <div class="pildora ocu" data-estado="plaza_portal" data-seguro=1>
     <p>Y aqui estas. Has conseguido colarte en el portal de un edificio.</p>
     <p>Es aburrido, pero aqui escondido en las sombras nadie te ve, nadie te observa.</p>
-    <p>Puedes esperar... o volver a la plaza</p>
+    <p>Puedes esperar... o volver a la calle</p>
 
     <a data-next="plaza_portal_esperar1">continuar</a><br>
 </div>
@@ -227,7 +228,7 @@
     <p>Patriarca: <span class='data-patriarca-nombre'></span></p>
 
     <a data-next="ver_miembros">Ver miembros</a><br>
-    <a data-next="ver_acciones_patriarca" data-condicion="siemplefalsa">Acciones patriarca</a><br>
+    <a data-next="ver_acciones_patriarca" data-condicion="siemplefalsa">Ir a tu habitacion</a><br>
 
     <p>&nbsp;</p>
     <a data-next="plaza">Volver a la ciudad</a><br>
@@ -235,10 +236,55 @@
 
 <div class="pildora ocu" data-estado="ver_miembros" data-seguro=1>
     <p>No hay miembros</p>
+    <p>&nbsp;</p>
     <a data-next="nido_base">continuar</a><br>
 </div>
+
 <div class="pildora ocu" data-estado="ver_acciones_patriarca" data-seguro=1>
-    <p>No hay acciones</p>
+    <a data-next="nido_lavarse">Lavarse la cara, darse un ducha y ponerse ropa nueva</a><br>
+    <p>&nbsp;</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="recibir_infectado" data-seguro=1>
+    <h2>Nuevo candidato</h2>
+    <p>Los infectados por la sangre vampirica buscan a su patriarca instintivamente. Este ha venido hasta aqui.
+    <br>De ti depende el destino de este pobre diablo...</p>
+    <p>
+        Nombre: <span class="data-vnombre"></span><br>
+        Profesión: <span class="data-vprofesion"></span>
+    </p>
+    <hr>
+    <p>No es digno de ser un vampiro. Nos servira mejor como un durmiente, borrando su memoria y liberandolo.</p>
+    <a data-next="hacer_dormido">Borrar vampirismo</a><br>
+    <p>Puedo necesitar un esclavo sin cerebro que me sirva, fuerza bruta para la colmena.</p>
+    <a data-next="hacer_esclavo">Convertir en esclavo</a><br>
+    <p>Desde hoy formaras parte de la familia.</p>
+    <a data-next="hacer_vampiro">Aceptar vampiro</a><br>
+    <p>&nbsp;</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="hacer_dormido" data-seguro=1>
+    <p><span class="data-vnombre"></span> comienza a vomitar un monton de sangre negra y luego se desmaya</p>
+    <p>Con cuidado lo mueves al exterior del nido. Se despertara con amnesia y volvera a su vida normal. <br>Algun dia cuando haga falta podras llamarlo a tu ayuda, y la sangre vampirica se despetara permitiendo darle ordenes.</p>
+    <p>&nbsp;</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="hacer_esclavo" data-seguro=1>
+    <p>Agarras el brazo del candidato y estrujas su muñeca, con tu mente ordenas su mente morir, y sientes como su cerebro se alisa y simplifica/p>>
+    <p>Ya no mas <span class="data-vnombre"></span>, ahora solo un siervo de la colmena sin mente.</p>
+    <p>&nbsp;</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="hacer_vampiro" data-seguro=1>
+    <p>Abrazas a <span class="data-vnombre"></span> y le ofreces un lugar en nido. Mediante el enlace mental le transmites tranquilidad y una sensacion de proposito.</p>
+    <p>Puedes sentir la calma crecer en su interior. La familia ha crecido.</p>
+    <p>&nbsp;</p>
     <a data-next="nido_base">continuar</a><br>
 </div>
 

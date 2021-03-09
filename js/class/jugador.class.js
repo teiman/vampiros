@@ -11,7 +11,8 @@ var Jugador = (function(){
         notoriedad: 10,
         comida: 10,
         sucio: false,
-        base: "ninguna"
+        base: "ninguna",
+        nuevo_amigo: null //posible vampiro para reclutar 
     };
     var Jugador = {};
 
