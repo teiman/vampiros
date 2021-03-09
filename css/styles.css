@@ -1,0 +1,78 @@
+
+
+html {
+    background-color: #731516;
+}
+
+* {
+    color: red;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+div.pildora {
+    margin-top: auto;
+    margin-right:auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 2em;
+    min-height: 60%;
+}
+
+.mostrar-estado {
+    margin-top: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.mostrar-estado p {
+    font-family: 'Open Sans', sans-serif;
+    margin:0px;
+
+    color: gray;
+    text-shadow: 0 0 4px #222, 0 0 13px #333;
+}
+
+
+
+div.pildora p{
+    font-size: 12pt;
+    font-family: 'Open Sans', sans-serif;
+
+    text-shadow: 0 0 4px #200, 0 0 13px #400;
+}
+
+div.pildora a {
+    font-size: 14pt;
+    font-family: 'Open Sans', sans-serif;
+
+    text-decoration: underline;
+    text-shadow:  0 0 2px #200, 0 0 4px #400, 0 0 10px #f00;
+}
+
+h1,h2 {
+    font-family: 'Lobster', cursive;
+}
+
+.ocu {
+    display:none!important;
+}
+
+.pildora a {
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    padding-right:0.5em;
+    outline: medium none;
+}
+
+a:hover {
+    text-shadow: 0 0 8px #200, 0 0 20px #f00;
+    text-decoration: none;
+}

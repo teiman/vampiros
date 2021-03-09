@@ -1,0 +1,269 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+
+<link href="css/styles.css" rel="stylesheet">
+
+
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+<script src="js/class/randomnames.class.js" type="text/javascript"></script>
+<script src="js/class/condicion.class.js" type="text/javascript"></script>
+<script src="js/class/mundo.class.js" type="text/javascript"></script>
+<script src="js/class/jugador.class.js" type="text/javascript"></script>
+<script src="js/class/eventos.class.js" type="text/javascript"></script>
+<script src="js/class/pildoras.class.js" type="text/javascript"></script>
+
+<div class="mostrar-estado ocu">
+    <h1>Familia <span class='data-apellido'></span></h1>
+</div>
+
+<div class="pildora" data-estado="inicio" data-seguro=1>
+    <h2>El sueño acaba... </h2>
+
+    <p>Te frotas los ojos y te levantas. Estabas dormido en el suelo de una cueva. El sitio donde te acostastes tiene tu forma, como un molde de tu cuerpo. Te sacudes quitandote de encima siglos de polvo.</p>
+    <p>Una pregunta asoma a tu mente...  ¿Quien eres?, es todo confuso, te sientes debil.</p>
+
+    <!--<a  data-next="inicio_matriarca1">Una matriarca</a> o -->
+    <a  data-next="inicio_patriarca1">Un vampiro</a>
+</div>
+
+<div class="pildora ocu" data-estado="inicio_matriarca1" data-seguro=1>
+    <p>Eres una matriarca, una madre de vampiros, jefe de familia....  sin familia.  </p>
+    <p>Estas demasido debil ahora mismo, y sola. Necesitas encontrar un sitio seguro y crear una familia fuerte.</p>
+    <a  data-next="recordar_nombre">Recordar nombre</a>
+</div>
+
+<div class="pildora ocu" data-estado="inicio_patriarca1" data-seguro=1>
+    <p>Eres un patriarca, un padre de familia de una familia de vampiros... solo ahora.</p>
+    <p>Esta soledad, hay que terminarla. Crear una familia fuerte. Pero primero hay que buscar un sitio seguro.</p>
+    <a  data-next="recordar_nombre">Recordar nombre</a>
+</div>
+
+<div class="pildora ocu" data-estado="recordar_nombre" data-seguro=1>
+    <p>... y tenia un nombre, ¿Cual es mi nombre?</p>
+    <p>Lo recuerdo...  mi nombre es <span class='data-nombre'></span></p>
+    <p>Poco a poco se empiezan a despertar recuerdos en tu mente, pesares y miedo, pero tambien una sensación de orgullo por lo que eres y quien eres.</p>
+    <a  data-next="recordar_apellido">Recordar apellido</a>
+
+    <a data-next="ninguno" data-condicion="siemprefalso">DEBUG Esta regla no es visible</a>
+</div>
+
+<div class="pildora ocu" data-estado="recordar_apellido" data-seguro=1>
+    <p>Mi nombre es <span class='data-nombre'></span> <span class='data-apellido'></span></p>
+    <p>Soy un <span class='data-apellido'></span>, el jefe de la familia <span class='data-apellido'></span>.</p>
+ 
+    <a  data-next="buscar_nido">Buscar un nido seguro</a>
+</div>
+
+<div class="pildora ocu" data-estado="buscar_nido" data-seguro=1>
+    <p>Exploras la cueva y encuentras una salida, la salida estaba atrancada por una roca dispuesta para ser facil de retirar desde dentro</p>
+    <p>Esta oscuro, pero no tan oscuro como estas acostumbrado. Hay una ciudad cerca, con tu vision nocturna puedes ver los coches y personas individuales. Hueles el aire en busca de otros vampiros pero no detectas ninguno.  Sin duda el mundo ha cambiado. </p>
+    <p>Caminas lentamente hacia la ciudad, dejando atras edificios abandonados o vacios. Y esos vehiculos que aparentemente hay por todas partes.</p>
+    <p>Despues de caminar bastante tiempo encuentras tres lugares que podrian ser propicios para establecer un nido.</p>
+
+    <p><a  data-next="usar_cloaca">Una cloaca</a>, pestilente pero oscura, conectada con el resto de la ciudad por una red de tuneles.</p>
+
+    <p><a  data-next="usar_fabrica">Una fabrica</a> abandonada hace mucho tiempo, pero aun llena de herramientas, pilas de metal, contenedores y algunos vehiculos desvencijados.</p>
+
+    <p><a  data-next="usar_casona">Una casona</a>, un edificio abandonado pero regio, la hierba creciendo en todos los muros, protegida de los curiosos por un muro de tres metros.</p>
+</div>
+
+<div class="pildora ocu" data-estado="usar_cloaca" data-seguro=1>
+    <p>La cloaca es la decisión mas inteligente, es un sitio seguro donde los humanos no entraran normalmente. Es facil de defender y podrias tener una familia enorme y seguir escondidos.</p>
+    <p>Lastima la pestilencia, no haras muchos amigos durante mucho tiempo, y tus ropas siempre apestaran un poco... no es un olor con el que sea facil vivir, especialmente si eres un vampiro.</p>
+
+    <p>Bueno..  es el momento de buscar comida y engordar la familia</p>
+
+    <a  data-next="plaza">Cazar humanos</a>
+</div>
+
+<div class="pildora ocu" data-estado="usar_fabrica" data-seguro=1>
+    <p>La fabrica podria ser un sitio ideal, una vez pintadas las ventanas de negro para impedir la entrada del sol. Con el metal se podrian construir defensas, o quizas armas. Los materiales estan aqui y algunas herramientas abandonadas.  Hay muchas habitaciones en los almacenes traseros, y en una habitacion cerrada con cadenas encuentras un coche, intentas ponerlo en marcha y funciona. No habias usado antes un coche, pero sabes instintivamente como conducir.</p>
+    <p>Despues de una larga exploración, te tumbas a dormir, duermes todo el dia y te despiertas al anochecer.</p>
+    <p>Es la hora,</p>
+    <a  data-next="plaza">Cazar humanos</a>
+</div>
+
+<div class="pildora ocu" data-estado="usar_casona" data-seguro=1>
+    <p>Un hogar debe ser una palacio, una familia debe tener un hogar elegante y aspirar a mas. Esta casa, una vez reparados algunas ventanas rotas, limpiados los suelos, podria ser una base impresionante desde la que fundar una familia respetada.</p>
+    <p>Este es el mejor lugar, para la mejor familia.</p>
+    <p>¡Empecemos!</p>
+    <a  data-next="plaza">Cazar humanos</a>
+</div>
+
+<div class="pildora ocu" data-estado="plaza">
+    <h2>Caminando por la ciudad.</h2>
+    <p>Llegas a la plaza del ayuntamiento. Hay alguna gente en los bares, o caminando por las aceras con prisa. Ves vagabundos en los callejones. Es una noche fria y tranquila.</p>
+    <a data-next="plaza_callejon">Ir al callejon</a> <br>
+    <a data-next="plaza_bar">‍Entrar en un bar</a> <br>
+    <a data-next="plaza_portal">Esconderse dentro de un portal</a> <br>
+    <a data-next="nido">Volver al nido</a> 
+</div>
+
+<div class="pildora ocu" data-estado="plaza_callejon">
+    <p>El callejon huele mal. Los borrachos lo utilizan para mear, aqui viven algunos vagabundos. Esta llena de cajas y basura. En realidad es un sitio tranquilo, hay menos ruidos que en la calle, y hace menos frio con las salidas de aireación de las maquinas de los locales cercanos</p>
+
+    <p>Buscas algun humano, y encuentras un vagabundo dormido</p>
+    <a data-next="comer_vagabundo_callejon">Alimentarse</a>
+</div>
+
+<div class="pildora ocu" data-estado="comer_vagabundo_callejon">
+    <p>Absorves la vida del vagabundo. Cuando acabas el cuerpo del vagabundo se arruga. Lo tiras sobre la basura.</p>
+    <p>La sangre agudiza tus sentidos vampiricos. Cada vida en varios kilometros de distancia se te hace presente. Eres consciente de su respiración, del palpitar de sus corazones.</p>
+    <p>Y entonces la vision se apaga de nuevo. Solo eres consciente del callejón, y ahora te da asco, decides volver a la plaza.</p>
+    <a data-next="plaza">‍continuar</a> <br>
+</div>
+
+
+<div class="pildora ocu" data-estado="plaza_callejon_policia">
+    <h2>Oops</h2>
+    <p>
+        Esperabas un callejon desierto, pero encuentras un grupo de policias sobre el cadaver de un vagabundo. Los miras sorprendido. Uno de ellos se gira y te mira de vuelta. 
+    </p>
+    <p>
+        El policia parece sosprechar de ti, o quizas es que los policias sospechan de todo el mundo.
+        Te giras y sales del callejon. Quizas no tendrias que haber entrado. Estas un poco nervioso.
+    </p>
+    <a data-next="plaza">‍continuar</a> 
+</div>
+
+<div class="pildora ocu" data-estado="plaza_bar" data-seguro=1>
+    <p>Al entrar en el bar se entrecierran tus ojos. Hay demasiado ruido y demasiada gente. Buscas un lugar tranquilo, y ves uno cerca de la barra, en una esquina.</p>
+    <p>La mayor parte de la gente esta sentada en las mesas mirando un partido, de vez en cuando gritan por algo que ocurre en la pantalla que hay en un rincon. Nadie te mira.</p>
+    <p>Andas hasta la barra y te sientas.</p>
+    <a data-next="plaza_bar_barra">‍continuar</a>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_bar_barra" data-seguro=1>
+    <p>Hay otras personas en la barra, no te habias fijado antes.</p>
+    <a data-next="plaza_bar_barra_izq">Hablar con la persona de la izquierda</a><br>
+    <a data-next="plaza_bar_barra_dere">Hablar con la persona de la derecha</a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
+    <a data-next="plaza">Salir del bar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_bar_barra_dere" data-seguro=1>
+    <p>Intentas iniciar una conversacion con la persona de la derecha, pero ni siquira te presta atención.</p>
+    <a data-next="plaza_bar_barra_izq">Hablar con la persona de la izquierda</a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
+    <a data-next="plaza">Salir del bar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_bar_barra_izq" data-seguro=1>
+    <p>Intentas hablar con la persona de la izquierda, pero parece demasiado concentrada en lo suyo.</p>
+    <a data-next="plaza_bar_barra_dere">Hablar con la persona de la derecha</a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
+    <a data-next="plaza">Salir del bar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_bar_barra_esperar1" data-seguro=1>
+    <p>Sigues bebiendo, aunque el alcohol para ti no es nada. De todos modos te gusta el ambiente. Escuchas la musica y el palpitar de los corazones que te rodean.</p>
+    <p>Quizas esperaras un poco mas...</p>
+    <a data-next="plaza_bar_barra_esperar2">Seguir bebiendo</a><br>
+    <a data-next="plaza">Salir del bar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_bar_barra_esperar2" data-seguro=1>
+    <p>Sigues esperando...</p>
+    <a data-next="plaza_bar_barra">Seguir bebiendo</a><br>
+    <a data-next="plaza">Salir del bar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_expulsado_bar">
+    <p>Entras en el bar, pero inmediatamente te arrastran al exterior.</p>
+    <p>La gente te mira con repugnancia.</p>
+    <p>Tus ropas estan sucias, ¿Quizas es por eso?, apestas a barro y sangre.</p>
+
+    <a data-next="plaza">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_portal" data-seguro=1>
+    <p>Y aqui estas. Has conseguido colarte en el portal de un edificio.</p>
+    <p>Es aburrido, pero aqui escondido en las sombras nadie te ve, nadie te observa.</p>
+    <p>Puedes esperar... o volver a la plaza</p>
+
+    <a data-next="plaza_portal_esperar1">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_portal_esperar1" data-seguro=1>
+    <p>Aqui estoy, en la oscuridad, esperando.</p>
+    <a data-next="plaza_portal_esperar2">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_portal_esperar2" data-seguro=1>
+    <p>Esperando..</p>
+    <a data-next="plaza_portal_esperar1">continuar</a><br>
+    <a data-next="plaza">Salir del portal</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="nido" data-seguro=1>    
+    <p data-condicion="nido_es_cloaca">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon desvencijado, en tu lugar favorito.</p>
+    <p data-condicion="nido_es_fabrica">Llegas al nido. Por fin te siente seguro. Te sientas en un banco metalico, en tu lugar favorito.</p>
+    <p data-condicion="nido_es_fabrica">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon junto al fuego, en tu lugar favorito.</p>
+
+    <p>Bien, ¿Y que hacemos ahora?</p>
+
+    <a data-next="nido_lavarse" data-condicion="jugador_sucio">Lavarse las ropas</a><br>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="nido_lavarse">
+    <p>Limpias tus ropas, las cuelgas para secarse y te pones ropa nueva.</p>
+    <p>Tu aspecto ha mejorado mucho.</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="nido_base" data-seguro=1>  
+    <h2>Gestionar familia</h2>
+    
+    <p>Familia principal: <span class='data-patriarca-apellido'></span></p>
+    <p>Infectados: <span class='data-infectados'></span></p>
+    <p>Patriarca: <span class='data-patriarca-nombre'></span></p>
+
+    <a data-next="ver_miembros">Ver miembros</a><br>
+    <a data-next="ver_acciones_patriarca" data-condicion="siemplefalsa">Acciones patriarca</a><br>
+
+    <p>&nbsp;</p>
+    <a data-next="plaza">Volver a la ciudad</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="ver_miembros" data-seguro=1>
+    <p>No hay miembros</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+<div class="pildora ocu" data-estado="ver_acciones_patriarca" data-seguro=1>
+    <p>No hay acciones</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<!-- ----------------------------------------------------- -->
+
+<div class="pildora ocu" data-estado="muerte_luz_solar" data-seguro=1>
+    <p>Todo se vuelve luminoso...</p>
+    <p>Miras tus manos y estan en llamas, pero enseguida tampoco ves bien, tus ojos tambien estan en llamas.</p>
+    <p>Pero eso solo dura unos segundos, tu vision se oscure, y es como si te desconectaras de tu cuerpo</p>
+    <p><br></p>
+    <p>Has muerto, salio el sol y tu cuerpo estallo en llamas.</p>
+    <a data-next="renacer">Renacer</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="renacer" data-seguro=1>
+    <p>Un vampiro ha muerto, pero en una cueva lejana otro vampiro despierta...</p>
+    <a data-next="inicio">Iniciar</a><br>
+</div>
+
+
+<!-- ----------------------------------------------------- -->
+
+<div class="mostrar-estado ocu">
+    <p>Tu notoriedad es <span class='data-notoriedad'></span></p>
+    <p>Tu prestigio es <span class='data-prestigio'></span></p>
+    <p>Estas <span class='data-hambre'></span></p>
+    <p>Ciclo <span class='data-ciclo'></span></p>
+</div>
