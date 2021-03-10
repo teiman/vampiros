@@ -76,3 +76,8 @@ a:hover {
     text-shadow: 0 0 8px #200, 0 0 20px #f00;
     text-decoration: none;
 }
+
+hr {
+    color:gray;
+    border:1px solid #400;
+}

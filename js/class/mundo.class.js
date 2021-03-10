@@ -86,10 +86,11 @@ var Mundo = (function(){
         Mundo.vampiros[key] = v;
     }
 
-    function nuevoInfectado(){
+    function nuevoInfectado(area){
         logme('nuevoInfectado',"Creando aspirante..");
 
-        var v = Vampiro.create();
+        var v = Vampiro.create(area);
+        console.log(v);
         if(v) v.render();
     }
 

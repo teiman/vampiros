@@ -1,25 +1,10 @@
 var Vampiro = (function(){
 
-    var Estados = {
-        NORMAL:1,
-        INFECTADO:2,
-        ESCLAVO:3,
-        DURMIENTE:4,
-        VAMPIRO:5       
-    };
-
-    var Profesion = {
-        Vagabundo: "Vagabundo",
-        Oficinista: "Oficinista",
-        Policia: "Policia",
-        Periodista: "Periodista"
-    };
-
     var Base = {
         nombre: "desconocido",
         apellido: "desconocido",
         estado: Estados.INFECTADO,
-        profesion: Profesion.Vagabundo,
+        profesion: Profesion.VAGABUNDO,
         presentado: false, // si este vampiro ha visitado ya al patriarca
         papa: "player" //esto igual se cambia luego para que otro vampiro pueda ser el creador
     };
@@ -43,12 +28,39 @@ var Vampiro = (function(){
         Mundo.indexarVampiro(v);
     }
 
-    function create(){
+    /**
+     * Devuelve una profesion tipica del area indicada 
+     * 
+     * @param string area 
+     * @returns string
+     */
+
+    function area2profesion(area){ 
+        switch(area){
+            case "callejon":
+                return Profesion.VAGABUNDO;
+            case "bar":
+                return Collection([
+                    Profesion.POLICIA,
+                    Profesion.OFICINISTA,
+                    Profesion.OFICINISTA,
+                    Profesion.OFICINISTA,
+                    Profesion.PERIODISTA
+                ]).rand();
+            default:
+                logme("area2profesion","");
+                break;        
+        }
+
+        return Profesion.VAGABUNDO;
+    }
+
+    function create(area){
         var v = Object.assign({}, Base)
         v.nombre = randomNames.get();
         v.apellido = randomNames.get();
         v.estado = Estados.NORMAL;
-        v.papa = "player";
+        v.profesion = area2profesion(area);
         v.KEY = genKey();
 
         indexarVampiro(v);

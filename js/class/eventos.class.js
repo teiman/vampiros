@@ -53,7 +53,7 @@ var Eventos = (function(){
         comer_vagabundo_callejon:function(){
             Mundo.get().policia_en_callejon = true;
             Jugador.deltaComida(20);        
-            Mundo.nuevoInfectado();
+            Mundo.nuevoInfectado("callejon");
             Jugador.get().sucio = true;//comer el vagabundo salpica tus ropas de sangre
         },
         plaza_callejon_policia: function(){
