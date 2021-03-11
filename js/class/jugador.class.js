@@ -8,7 +8,8 @@ var Jugador = (function(){
         nombre: randomNames.get(),
         apellido: randomNames.get(),
         prestigio: 20,
-        notoriedad: 10,
+        notoriedad: 10,     
+        dormidos: 0,
         comida: 10,
         sucio: false,
         base: "ninguna",
@@ -32,34 +33,27 @@ var Jugador = (function(){
         return Jugador;
     }
 
-    function deltaComida(delta){
-        Jugador.comida = Jugador.comida + delta;
-        if(Jugador.comida<0){
-            Jugador.comida = 0;
+    function deltaAtributo(que,delta){
+        Jugador[que] = Jugador[que] + delta;
+        if(Jugador[que]<0){
+            Jugador[que] = 0;
         }
-        if(Jugador.comida>150){
-            Jugador.comida = 150;
+        if(Jugador[que]>150){
+            Jugador[que] = 150;
         }    
+    }
+
+
+    function deltaComida(delta){
+        deltaAtributo("comida",delta);  
     }
 
     function deltaPrestigio(delta){
-        Jugador.prestigio = Jugador.prestigio + delta;
-        if(Jugador.prestigio<0){
-            Jugador.prestigio = 0;
-        }
-        if(Jugador.prestigio>150){
-            Jugador.prestigio = 150;
-        }    
+        deltaAtributo("prestigio",delta);
     }
 
     function deltaNotoriedad(delta){
-        Jugador.notoriedad = Jugador.notoriedad + delta;
-        if(Jugador.notoriedad<0){
-            Jugador.notoriedad = 0;
-        }
-        if(Jugador.notoriedad>120){
-            Jugador.notoriedad = 120;
-        }    
+        deltaAtributo("notoriedad",delta);
     }
 
     function setApellido(apellido){
@@ -139,6 +133,7 @@ var Jugador = (function(){
         setSexo:setSexo,
         setNombre:setNombre,
         setApellido:setApellido,
+        delta: deltaAtributo,
         deltaComida:deltaComida,
         deltaPrestigio:deltaPrestigio,
         deltaNotoriedad:deltaNotoriedad,

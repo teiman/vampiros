@@ -38,21 +38,15 @@ var Vampiro = (function(){
     function area2profesion(area){ 
         switch(area){
             case "callejon":
-                return Profesion.VAGABUNDO;
+                return TablaVampiros.CALLEJON.rand();
             case "bar":
-                return Collection([
-                    Profesion.POLICIA,
-                    Profesion.OFICINISTA,
-                    Profesion.OFICINISTA,
-                    Profesion.OFICINISTA,
-                    Profesion.PERIODISTA
-                ]).rand();
+                return TablaVampiros.BAR.rand();
             default:
-                logme("area2profesion","");
+                logme("area2profesion","ERROR: no hay tabla de spawn de vampiros para el area:"+ area);
                 break;        
         }
 
-        return Profesion.VAGABUNDO;
+        return TablaVampiros.CALLEJON.rand();
     }
 
     function create(area){
@@ -62,8 +56,7 @@ var Vampiro = (function(){
         v.estado = Estados.NORMAL;
         v.profesion = area2profesion(area);
         v.KEY = genKey();
-
-        indexarVampiro(v);
+        
         return v;
     }
 

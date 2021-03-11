@@ -61,6 +61,11 @@ var Mundo = (function(){
         return "dia";
     }
 
+    function espearALaNoche(){
+        Mundo.hora = 20;
+    }
+
+
     /**
      * Indica si este lugar esta protegido contra la luz
      * @param string estado 
@@ -91,7 +96,14 @@ var Mundo = (function(){
 
         var v = Vampiro.create(area);
         console.log(v);
-        if(v) v.render();
+        if(!v) return;
+
+        indexarVampiro(v);
+        v.render();
+    }
+
+    function borrarVampiro(key){
+        delete Mundo.vampiros[key];
     }
 
     function getInfectadoEnEspera(){
@@ -122,6 +134,8 @@ var Mundo = (function(){
     iniciarMundo();
 
     return {
+        espearALaNoche:espearALaNoche,
+        borrarVampiro:borrarVampiro,
         getInfectadoEnEspera:getInfectadoEnEspera,
         nuevoInfectado:nuevoInfectado,
         indexarVampiro:indexarVampiro,

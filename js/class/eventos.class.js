@@ -91,6 +91,15 @@ var Eventos = (function(){
                     Pildoras.moverAEstado("recibir_infectado");
                 }
             }
+        },
+        hacer_dormido:function(){
+            Jugador.delta("dormidos",1);
+            var key = Jugador.get().nuevo_amigo.KEY;
+            Jugador.get().nuevo_amigo = null;
+            Mundo.borrarVampiro(key);
+        },
+        dormir_hasta_la_noche:function(){
+            Mundo.espearALaNoche();
         }
     };
 

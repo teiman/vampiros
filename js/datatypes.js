@@ -13,3 +13,23 @@ var Profesion = {
     POLICIA: "Policia", //Ayuda a matar enemigos o defender la base
     PERIODISTA: "Periodista" //Ayuda a controlar la notoriedad
 };
+
+
+var TablaVampiros = {};
+
+TablaVampiros.BAR = Collection([
+    Profesion.POLICIA,
+    Profesion.OFICINISTA,
+    Profesion.OFICINISTA,
+    Profesion.OFICINISTA,
+    Profesion.PERIODISTA
+]);
+
+TablaVampiros.CALLEJON = Collection([
+    Profesion.VAGABUNDO
+]);
+
+TablaVampiros.PORTAL = Collection([
+    Profesion.OFICINISTA
+]);
+
