@@ -13,7 +13,7 @@ var Jugador = (function(){
         comida: 10,
         sucio: false,
         base: "ninguna",
-        nuevo_amigo: null //posible vampiro para reclutar 
+        zombies: 0,
     };
     var Jugador = {};
 
@@ -24,6 +24,7 @@ var Jugador = (function(){
     function iniciarJugador(){
         for (var propiedad in Base) {
             if (Base.hasOwnProperty(propiedad)) {
+                logme("Jugador","Se ha reiniciado "+propiedad);
                 Jugador[propiedad] =  Base[propiedad];
             }
         }
@@ -97,6 +98,8 @@ var Jugador = (function(){
 
         return "lleno"+oa;
     }
+
+
 
     /**
      * Hay textos que se auto-actualizan esten donde esten.

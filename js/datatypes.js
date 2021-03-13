@@ -17,7 +17,7 @@ var Profesion = {
 
 var TablaVampiros = {};
 
-TablaVampiros.BAR = Collection([
+TablaVampiros.BAR = Coleccion([
     Profesion.POLICIA,
     Profesion.OFICINISTA,
     Profesion.OFICINISTA,
@@ -25,11 +25,11 @@ TablaVampiros.BAR = Collection([
     Profesion.PERIODISTA
 ]);
 
-TablaVampiros.CALLEJON = Collection([
+TablaVampiros.CALLEJON = Coleccion([
     Profesion.VAGABUNDO
 ]);
 
-TablaVampiros.PORTAL = Collection([
+TablaVampiros.PORTAL = Coleccion([
     Profesion.OFICINISTA
 ]);
 

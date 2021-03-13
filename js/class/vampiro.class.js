@@ -6,7 +6,7 @@ var Vampiro = (function(){
         estado: Estados.INFECTADO,
         profesion: Profesion.VAGABUNDO,
         presentado: false, // si este vampiro ha visitado ya al patriarca
-        papa: "player" //esto igual se cambia luego para que otro vampiro pueda ser el creador
+        papa: null //esto igual se cambia luego para que otro vampiro pueda ser el creador
     };
 
 
@@ -41,6 +41,8 @@ var Vampiro = (function(){
                 return TablaVampiros.CALLEJON.rand();
             case "bar":
                 return TablaVampiros.BAR.rand();
+            case "bar":
+                return TablaVampiros.PORTAL.rand();
             default:
                 logme("area2profesion","ERROR: no hay tabla de spawn de vampiros para el area:"+ area);
                 break;        
@@ -56,7 +58,7 @@ var Vampiro = (function(){
         v.estado = Estados.NORMAL;
         v.profesion = area2profesion(area);
         v.KEY = genKey();
-        
+
         return v;
     }
 

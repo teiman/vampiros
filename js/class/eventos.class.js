@@ -82,11 +82,11 @@ var Eventos = (function(){
             Jugador.renacer();
         },
         nido:function(){
-            if(!Jugador.get().nuevo_amigo){
+            if(!Familia.get().candidato){
                 var v = Mundo.getInfectadoEnEspera();
 
                 if(v){
-                    Jugador.get().nuevo_amigo = v;
+                    Familia.ponCandidato(v);
                     v.render();
                     Pildoras.moverAEstado("recibir_infectado");
                 }
@@ -94,12 +94,26 @@ var Eventos = (function(){
         },
         hacer_dormido:function(){
             Jugador.delta("dormidos",1);
-            var key = Jugador.get().nuevo_amigo.KEY;
-            Jugador.get().nuevo_amigo = null;
-            Mundo.borrarVampiro(key);
+            Familia.eliminarCandidato();
+        },
+        hacer_esclavo:function(){
+            Jugador.delta("zombies",1);
+            Familia.eliminarCandidato();
+        },
+        hacer_vampiro:function(){
+            logme("hacer_vampiro","se va a intentar convertir candidato en familiar");
+            var key = Familia.get().candidato.KEY;
+            Familia.get().candidato = null;
+            Familia.agnadirVampiro(key);
         },
         dormir_hasta_la_noche:function(){
             Mundo.espearALaNoche();
+        },
+        ver_miembros:function(){
+            var familiaActual = Familia.getMiembros();
+            
+            //no_hay_miembros
+            Bigotes.hidratar("tabla-miembros", familiaActual);
         }
     };
 
