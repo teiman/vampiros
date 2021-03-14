@@ -6,7 +6,7 @@ var Jugador = (function(){
     var Base = {
         sexo: "?",
         nombre: randomNames.get(),
-        apellido: randomNames.get(),
+        apellido: Chicago.names.rand(),
         prestigio: 20,
         notoriedad: 10,     
         dormidos: 0,
@@ -17,13 +17,18 @@ var Jugador = (function(){
     };
     var Jugador = {};
 
+    //Al reiniciar el jugador, no sobreescribimos estos
+    var no_reiniciar = [
+        "apellido","dormidos","comida","base","sucio","zombies"
+    ];
+
     function logme(tag,msg){
         console.log("["+tag+"] "+msg);
     }
 
     function iniciarJugador(){
         for (var propiedad in Base) {
-            if (Base.hasOwnProperty(propiedad)) {
+            if (Base.hasOwnProperty(propiedad) && no_reiniciar.indexOf(propiedad)==-1) {
                 logme("Jugador","Se ha reiniciado "+propiedad);
                 Jugador[propiedad] =  Base[propiedad];
             }

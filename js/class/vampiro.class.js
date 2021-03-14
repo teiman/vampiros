@@ -54,7 +54,7 @@ var Vampiro = (function(){
     function create(area){
         var v = Object.assign({}, Base)
         v.nombre = randomNames.get();
-        v.apellido = randomNames.get();
+        v.apellido = Chicago.names.rand();
         v.estado = Estados.NORMAL;
         v.profesion = area2profesion(area);
         v.KEY = genKey();
