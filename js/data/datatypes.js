@@ -33,3 +33,6 @@ TablaVampiros.PORTAL = Coleccion([
     Profesion.OFICINISTA
 ]);
 
+TablaVampiros.CUEVA = Coleccion([
+    Profesion.VAGABUNDO
+]);

@@ -5,7 +5,7 @@
 var Condicion = (function(){
 
     function logme(tag,msg){
-        console.log("["+tag+"] "+msg);
+        console.log("[Condicion]["+tag+"] "+msg);
     }
 
     var Tests = {

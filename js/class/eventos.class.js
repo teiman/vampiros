@@ -5,7 +5,7 @@ var Eventos = (function(){
     // ----------------------
 
     function logme(tag,msg){
-        console.log("["+tag+"] "+msg);
+        console.log("[Eventos]["+tag+"] "+msg);
     }
 
     var estados = {
@@ -18,16 +18,11 @@ var Eventos = (function(){
             Jugador.setNombre(randomNames.get());
         },
         recordar_nombre:function(){
-            var nombre = prompt("¿Cual es tu nombre?",Jugador.get().nombre);
+            var nombre = prompt("¿Cual es tu nombre?",Jugador.get().actual.nombre);
             Jugador.setNombre(nombre);
-
-            //Si no tiene apellido, sugerimos uno
-            if(!Jugador.get().apellido){
-                Jugador.get().apellido = Chicago.names.rand();
-            }
         },
         recordar_apellido:function(){
-            var apellido = prompt("¿Cual es tu apellido?",Jugador.get().apellido);
+            var apellido = prompt("¿Cual es tu apellido?",Jugador.get().actual.apellido);
 
             Jugador.setApellido(apellido);
 
@@ -69,6 +64,7 @@ var Eventos = (function(){
         plaza_bar:function(){
             if(Jugador.get().prestigio<5){
                 Pildoras.moverAEstado("plaza_expulsado_bar");
+                return;
             }
         },
         plaza_bar_barra_esperar1:function(){

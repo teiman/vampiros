@@ -1,4 +1,7 @@
 var Vampiro = (function(){
+    function logme(tag,msg){
+        console.log("[Vampiro]["+tag+"] "+msg);
+    }
 
     var Base = {
         nombre: "desconocido",
@@ -9,7 +12,6 @@ var Vampiro = (function(){
         papa: null //esto igual se cambia luego para que otro vampiro pueda ser el creador
     };
 
-
     Base.getFullName = function(){
         return this.nombre + " "+ this.apellido;
     };
@@ -17,6 +19,10 @@ var Vampiro = (function(){
     Base.render = function(){
         $(".data-vnombre").text( this.getFullName() );
         $(".data-vprofesion").text( this.profesion );
+    };
+
+    Base.describeRoles = function(){
+        var es_patriarca = (this.KEY == );
     };
 
     //Genera un identificador unico
@@ -43,6 +49,8 @@ var Vampiro = (function(){
                 return TablaVampiros.BAR.rand();
             case "bar":
                 return TablaVampiros.PORTAL.rand();
+            case "cueva":
+                return TablaVampiros.CUEVA.rand();    
             default:
                 logme("area2profesion","ERROR: no hay tabla de spawn de vampiros para el area:"+ area);
                 break;        
@@ -51,13 +59,26 @@ var Vampiro = (function(){
         return TablaVampiros.CALLEJON.rand();
     }
 
-    function create(area){
+    function create(area,father){
+        logme('create','Creando vampiro...');
+
+        //Apellido aleatorio 
+        var newapellido = Chicago.names.rand();
+        if(father){
+            newapellido = father.apellido;
+        }
+
         var v = Object.assign({}, Base)
         v.nombre = randomNames.get();
-        v.apellido = Chicago.names.rand();
+        v.apellido = newapellido;
         v.estado = Estados.NORMAL;
         v.profesion = area2profesion(area);
         v.KEY = genKey();
+
+        if(father){
+            logme('create',"asignando padre:"+father.KEY)
+            v.papa = father.KEY;
+        }
 
         return v;
     }

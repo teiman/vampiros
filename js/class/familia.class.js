@@ -1,4 +1,7 @@
 var Familia = (function(){
+    function logme(tag,msg){
+        console.log("[Familia]["+tag+"] "+msg);
+    }
 
     var Familia = {
         lista: Coleccion([]),

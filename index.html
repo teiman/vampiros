@@ -263,11 +263,14 @@
 
     <script id="tabla-miembros-template" type="template">
         <table border="1">
+            
             <tr>
+                <td></td>
                 <th>Nombre</th><th></th>
             </tr>    
             {{#lista}}
             <tr>
+                <td>{{#describeRoles}}{{/describeRoles}}</td>
                 <td>{{nombre}}</td><td><a href="#">Hablar</a></td>
             </tr>
             {{/lista}}

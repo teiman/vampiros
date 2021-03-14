@@ -2,6 +2,9 @@
  * Control de estado del mundo
  */
 var Mundo = (function(){
+    function logme(tag,msg){
+        console.log("[Mundo]["+tag+"] "+msg);
+    }
 
     var Base = {
         policia_en_callejon: false,
@@ -10,10 +13,6 @@ var Mundo = (function(){
     };
 
     var Mundo = {};
-
-    function logme(tag,msg){
-        console.log("["+tag+"] "+msg);
-    }
     
     function iniciarMundo(){
         logme("iniciarMundo","Se ha reiniciado el mundo con los valores por defecto");
@@ -30,7 +29,6 @@ var Mundo = (function(){
             Mundo['vampiros'] = {};
         }
     }
-
 
     function avanzarHora(){
         Mundo.hora = Mundo.hora + 0.5;
@@ -94,7 +92,7 @@ var Mundo = (function(){
     function nuevoInfectado(area){
         logme('nuevoInfectado',"Creando aspirante..");
 
-        var v = Vampiro.create(area);
+        var v = Vampiro.create(area, Jugador.get().actual);
         console.log(v);
         if(!v) return;
 
