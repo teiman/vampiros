@@ -61,7 +61,7 @@ var Mundo = (function(){
         return "dia";
     }
 
-    function espearALaNoche(){
+    function esperarALaNoche(){
         Mundo.hora = 20;
     }
 
@@ -125,6 +125,10 @@ var Mundo = (function(){
         return null;
     }
 
+    function getvampiro(key){
+        return Mundo.vampiros[key];
+    }
+
 
     function get(){
         return Mundo;
@@ -134,7 +138,8 @@ var Mundo = (function(){
     iniciarMundo();
 
     return {
-        espearALaNoche:espearALaNoche,
+        getvampiro:getvampiro,
+        esperarALaNoche:esperarALaNoche,
         borrarVampiro:borrarVampiro,
         getInfectadoEnEspera:getInfectadoEnEspera,
         nuevoInfectado:nuevoInfectado,

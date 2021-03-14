@@ -16,10 +16,15 @@ var Coleccion = function(items){
         });
     }
 
+    function count(){
+        return items.length;
+    }
+
     var Col = {
         items:items,
         push:push,
         foreach:foreach, 
+        count:count,
         rand:rand
     };
 

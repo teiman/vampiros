@@ -32,12 +32,17 @@ var Familia = (function(){
         };
     }
 
+    function count(){
+        return Familia.lista.count();
+    }
+
     function get(){
         return Familia;
     }
 
     return {
         get:get,
+        count:count,
         getMiembros:getMiembros,
         eliminarCandidato:eliminarCandidato,
         ponCandidato:ponCandidato,

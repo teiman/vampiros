@@ -13,13 +13,14 @@ var Jugador = (function(){
         comida: 10,
         sucio: false,
         base: "ninguna",
+        actual: null,
         zombies: 0,
     };
     var Jugador = {};
 
     //Al reiniciar el jugador, no sobreescribimos estos
     var no_reiniciar = [
-        "apellido","dormidos","comida","base","sucio","zombies"
+        "apellido","dormidos","comida","base","sucio","zombies","actual"
     ];
 
     function logme(tag,msg){
@@ -101,7 +102,25 @@ var Jugador = (function(){
         if(val<80)
             return "saciad"+oa;
 
-        return "lleno"+oa;
+        return "llen"+oa;
+    }
+
+    function elegirSiguientePatriarca(este){
+        logme('elegirSiguientePatriarca','...');
+
+        var key = $(este).attr("data-key");
+        var v = Mundo.getvampiro(key);
+
+        console.log(key);
+        console.log(v);
+
+        Jugador.nombre = v.nombre;
+        Jugador.apellido = v.apellido;
+        Jugador.actual = v;
+
+        updatePlayerTexts();
+
+        Pildoras.moverAEstado("nido_base");
     }
 
 
@@ -113,7 +132,6 @@ var Jugador = (function(){
     function updatePlayerTexts(){
         $(".data-nombre").text(Jugador.nombre);
         $(".data-apellido").text(Jugador.apellido);
-        $(".data-infectado").text(Mundo.get().infectados);
 
         var desc_notoriedad = describePorcentaje(Jugador.notoriedad,"a");
         var desc_prestigio =  describePorcentaje(Jugador.prestigio,"o");
@@ -136,6 +154,7 @@ var Jugador = (function(){
 
     return {
         renacer:iniciarJugador,
+        elegirSiguientePatriarca:elegirSiguientePatriarca,
         updatePlayerTexts:updatePlayerTexts,
         get:get,
         setSexo:setSexo,

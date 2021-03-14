@@ -20,6 +20,11 @@ var Eventos = (function(){
         recordar_nombre:function(){
             var nombre = prompt("¿Cual es tu nombre?",Jugador.get().nombre);
             Jugador.setNombre(nombre);
+
+            //Si no tiene apellido, sugerimos uno
+            if(!Jugador.get().apellido){
+                Jugador.get().apellido = Chicago.names.rand();
+            }
         },
         recordar_apellido:function(){
             var apellido = prompt("¿Cual es tu apellido?",Jugador.get().apellido);
@@ -76,6 +81,11 @@ var Eventos = (function(){
             Jugador.get().sucio = false;
         },
         renacer:function(){
+            if(Familia.count()){
+                Pildoras.moverAEstado("elegir_siguiente_patriarca");
+                return;
+            }
+
             //GAME OVER
             //Reseteas jugador y mundo
             Mundo.renacer();
@@ -107,13 +117,19 @@ var Eventos = (function(){
             Familia.agnadirVampiro(key);
         },
         dormir_hasta_la_noche:function(){
-            Mundo.espearALaNoche();
+            Mundo.esperarALaNoche();
         },
         ver_miembros:function(){
             var familiaActual = Familia.getMiembros();
             
             //no_hay_miembros
             Bigotes.hidratar("tabla-miembros", familiaActual);
+        },
+        elegir_siguiente_patriarca:function(){
+            var familiaActual = Familia.getMiembros();
+            
+            //no_hay_miembros
+            Bigotes.hidratar("tabla-miembros2", familiaActual);
         }
     };
 

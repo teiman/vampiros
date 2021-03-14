@@ -250,7 +250,7 @@
 </div>
 
 <div class="pildora ocu" data-estado="dormir_hasta_la_noche" data-seguro="1">
-    <p>Dormistas profundamente, y te has despertado revitalizado. La noche acaba de caer. Es un nuevo dia.</p>
+    <p>Dormistes profundamente, y te has despertado revitalizado. La noche acaba de caer. Empieza la caza.</p>
     <p>&nbsp;</p>
     <a data-next="nido_base">continuar</a><br>
 </div>
@@ -295,7 +295,6 @@
     <a data-next="nido_base">continuar</a><br>
 </div>
 
-
 <div class="pildora ocu" data-estado="hacer_dormido" data-seguro=1>
     <p><span class="data-vnombre"></span> comienza a vomitar un monton de sangre negra y luego se desmaya</p>
     <p>Con cuidado lo mueves al exterior del nido. Se despertara con amnesia y volvera a su vida normal. <br>Algun dia cuando haga falta podras llamarlo a tu ayuda, y la sangre vampirica se despetara permitiendo darle ordenes.</p>
@@ -311,11 +310,43 @@
 </div>
 
 <div class="pildora ocu" data-estado="hacer_vampiro" data-seguro=1>
-    <p>Abrazas a <span class="data-vnombre"></span> y le ofreces un lugar en nido. Mediante el enlace mental le transmites tranquilidad y una sensacion de proposito.</p>
+    <p>Abrazas a <span class="data-vnombre"></span> y le ofreces un lugar en nido. Mediante el enlace mental le transmites tranquilidad y una sensación de proposito.</p>
     <p>Puedes sentir la calma crecer en su interior. La familia ha crecido.</p>
     <p>&nbsp;</p>
     <a data-next="nido_base">continuar</a><br>
 </div>
+
+
+<div class="pildora ocu" data-estado="elegir_siguiente_patriarca" data-seguro="1">
+    <p>El patriarca ha muerto, pero la familia no esta terminada. Elige otro vampiro para ser patriarca de la familia</p>
+
+    <div id="tabla-miembros2">
+    </div>
+
+    <script id="tabla-miembros2-template" type="template">
+        <table border="1">
+            <tr>
+                <th>Nombre</th><th></th>
+            </tr>    
+            {{#lista}}
+            <tr>
+                <td>{{nombre}}</td>
+                <td>
+                    <a href="javascript:void(0)" 
+                        data-key={{KEY}}
+                        onclick="Jugador.elegirSiguientePatriarca(this)">
+                        Elegir
+                    </a>
+                </td>
+            </tr>
+            {{/lista}}
+        </table>
+    </script>
+
+    <p>&nbsp;</p>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
 
 <!-- ----------------------------------------------------- -->
 
