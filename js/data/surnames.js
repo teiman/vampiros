@@ -1,6 +1,12 @@
 
+
+/**
+ * Nombres y lugares de Chicago
+ */
 var Chicago = {};
 
+// Sacado de aqui mezclando USA y varios paises europeos 
+// https://en.wikipedia.org/wiki/Lists_of_most_common_surnames
 var names = ["Smith","Johnson","Williams","Brown","Jones","Miller","Davis","Garcia","Rodriguez","Wilson","Martinez",
 "Anderson","Taylor","Thomas","Hernandez","Moore","Martin","Jackson","Thompson","White","Lopez","Lee","Gonzalez",
 "Harris","Clark","Lewis","Robinson","Walker","Perez","Hall","Young","Allen","Sanchez","Wright","King","Scott",
