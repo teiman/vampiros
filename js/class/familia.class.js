@@ -18,6 +18,15 @@ var Familia = (function(){
         Familia.lista.push(key);
     }
 
+    function quitarVampiro(key){
+        const index = Familia.lista.indexOf(key);
+
+        if(index<0)
+            return;
+
+        Familia.lista.splice(index, 1);
+    }
+
     function ponCandidato(v){
         Familia.candidato = v;
     }
@@ -27,6 +36,8 @@ var Familia = (function(){
 
         Familia.lista.foreach(function(key) {
             var v = Mundo.get().vampiros[key];
+            if(!v) return;
+            v.rol = v.describeRoles();
             out.push(v);
         });
 
@@ -49,6 +60,7 @@ var Familia = (function(){
         getMiembros:getMiembros,
         eliminarCandidato:eliminarCandidato,
         ponCandidato:ponCandidato,
+        quitarVampiro:quitarVampiro,
         agnadirVampiro:agnadirVampiro
     };
 })();

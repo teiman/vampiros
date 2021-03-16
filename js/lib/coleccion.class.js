@@ -20,11 +20,21 @@ var Coleccion = function(items){
         return items.length;
     }
 
+    function indexOf(element){
+        return items.indexOf(element);
+    }
+
+    function splice(offset,c){
+        return items.splice(offset,c);
+    }
+
     var Col = {
         items:items,
         push:push,
         foreach:foreach, 
         count:count,
+        indexOf:indexOf,
+        splice:splice,
         rand:rand
     };
 

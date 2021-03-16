@@ -5,7 +5,7 @@ var Jugador = (function(){
     function logme(tag,msg){
         console.log("[Jugador]["+tag+"] "+msg);
     }
-    
+
     var Base = {
         sexo: "?",
         prestigio: 20,
@@ -20,8 +20,11 @@ var Jugador = (function(){
     //Creamos vampiro original 
     var v = Vampiro.create("cueva");
     v.estado = Estados.VAMPIRO;
+    v.presentado = true; //sino nada mas volver a la base aparece que quiere "unirse" a la familia
+        // no tendria sentido, siendo este el patriarca original 
 
     Mundo.indexarVampiro(v);
+    Familia.agnadirVampiro(v.KEY);
 
     var Jugador = {
         actual: v

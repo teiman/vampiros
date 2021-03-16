@@ -23,6 +23,10 @@ var Vampiro = (function(){
 
     Base.describeRoles = function(){
         var es_patriarca = (this.KEY == Jugador.get().actual.KEY);
+        if(es_patriarca)
+            return "patriarca";
+
+        return "--";    
     };
 
     //Genera un identificador unico

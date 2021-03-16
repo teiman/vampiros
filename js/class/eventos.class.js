@@ -77,15 +77,26 @@ var Eventos = (function(){
             Jugador.get().sucio = false;
         },
         renacer:function(){
+            //Quitamos el vampiro actual.. que ha muerto
+            var KEY = Jugador.get().actual.KEY;
+            Familia.quitarVampiro(KEY);
+            Mundo.borrarVampiro(KEY);
+            logme("renacer","Se ha eliminado el v:"+KEY+" de global y la familia");
+
             if(Familia.count()){
+                logme("renacer","Aun quedan posibles patriarcas");
                 Pildoras.moverAEstado("elegir_siguiente_patriarca");
                 return;
             }
 
+            logme("renacer","¡Han muerto todos los vampiros!");
+
+            //TODO: testear esta linea
             //GAME OVER
             //Reseteas jugador y mundo
             Mundo.renacer();
             Jugador.renacer();
+            Pildoras.moverAEstado("inicio");
         },
         nido:function(){
             if(!Familia.get().candidato){
