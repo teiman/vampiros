@@ -30,17 +30,17 @@ var Eventos = (function(){
         },
         usar_cloaca:function(){
             Jugador.deltaPrestigio(-20); //este sitio da asco
-            Jugador.base = "cloaca";
+            Jugador.get().base = "cloaca";
             Jugador.deltaNotoriedad(-10); // buen escondite 
             Jugador.get().sucio = true; //Entrar en la cloaca ensucia tus ropas   
         },
         usar_fabrica:function(){
-            Jugador.base = "fabrica";
+            Jugador.get().base = "fabrica";
             Jugador.deltaNotoriedad(1);// no es un gran escondite
         },
         usar_casona:function(){
             Jugador.deltaPrestigio(20);// ¡menuda casa!
-            Jugador.base = "casona";
+            Jugador.get().base = "casona";
             Jugador.deltaNotoriedad(10);// no te ocultas demasiado
         },
         plaza_callejon:function(){

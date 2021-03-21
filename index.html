@@ -107,7 +107,7 @@
     <a data-next="plaza_callejon">Ir al callejon</a> <br>
     <a data-next="plaza_bar">‍Entrar en un bar</a> <br>
     <a data-next="plaza_portal">Esconderse dentro de un portal</a> <br>
-    <a data-next="nido">Volver al nido</a> 
+    <a data-next="volver_nido">Volver al nido</a> 
 </div>
 
 <div class="pildora ocu" data-estado="plaza_callejon">
@@ -231,10 +231,17 @@
 </div>
 
 
+<div class="pildora ocu" data-estado="volver_nido" data-seguro=1>    
+    <p data-condicion="nido_es_cloaca">Abres una alcantarilla y saltas dentro.</p>
+    <p data-condicion="nido_es_fabrica">Trepas a un camion, y desde este saltas a otro en marcha, siempre en direccion a las afuera.</p>
+    <p data-condicion="nido_es_casona">Tomas un coche y conduces al nido.</p>
+    <a data-next="nido">continuar</a><br>
+</div>
+
 <div class="pildora ocu" data-estado="nido" data-seguro=1>    
     <p data-condicion="nido_es_cloaca">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon desvencijado, en tu lugar favorito.</p>
     <p data-condicion="nido_es_fabrica">Llegas al nido. Por fin te siente seguro. Te sientas en un banco metalico, en tu lugar favorito.</p>
-    <p data-condicion="nido_es_fabrica">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon junto al fuego, en tu lugar favorito.</p>
+    <p data-condicion="nido_es_casona">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon junto al fuego, en tu lugar favorito.</p>
 
     <p>Bien, ¿Y que hacemos ahora?</p>
 
