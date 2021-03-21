@@ -66,18 +66,22 @@ h1,h2 {
 }
 
 .pildora a {
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    padding-right:0.5em;
-    outline: medium none;
+    padding-top: 0.3em;
+    /*padding-bottom: 0.3em;*/
+    padding-right: 0.3em;
+  
+    margin-bottom: 0.1em;
+    margin-top: 0.3em;
+    display: inline-block;  
 }
 
 a:hover {
-    text-shadow: 0 0 8px #200, 0 0 20px #f00;
-    text-decoration: none;
+    text-shadow: 0 0 8px #200, 0 0 20px #f00!important;
+    font-weight:bold;
 }
 
 hr {
     color:gray;
     border:1px solid #400;
 }
+

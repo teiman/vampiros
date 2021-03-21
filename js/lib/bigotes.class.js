@@ -4,17 +4,21 @@ var Bigotes = (function(){
         console.log("["+tag+"] "+msg);
     }
 
+    function removeLastComma(strng){        
+        var n=strng.lastIndexOf(",");
+        var a=strng.substring(0,n) 
+        return a;
+    }
+
     function hidratar(id, data){
-        /*
-        var view = {
-            title: "Joe",
-            calc: function () {
-              return 2 + 4;
-            }
-          };
-          
-          var output = Mustache.render("{{title}} spends {{calc}}", view);
-          */
+
+        data["trim_coma"] = function () {
+            return function(val, render) {
+              return removeLastComma($.trim( render(val) ));
+              //return render(val);
+            };
+        };  
+
         var $item = $("#"+id);
         var template_name = "#"+id+"-template";
         var template = $(template_name).html(); 

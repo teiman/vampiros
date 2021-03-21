@@ -28,9 +28,6 @@
 <script src="js/lib/pildoras.class.js" type="text/javascript"></script>
 
 
-<div class="mostrar-estado ocu">
-    <h1>Familia <span class='data-apellido'></span></h1>
-</div>
 
 <div class="pildora" data-estado="inicio" data-seguro=1>
     <h2>El sueño acaba... </h2>
@@ -165,8 +162,26 @@
 <div class="pildora ocu" data-estado="plaza_bar_barra_izq" data-seguro=1>
     <p>Intentas hablar con la persona de la izquierda, pero parece demasiado concentrada en lo suyo.</p>
     <a data-next="plaza_bar_barra_dere">Hablar con la persona de la derecha</a><br>
+    <a data-next="plaza_bar_muchacha" data-condicion="una_de_6">Hablar con una muchacha</a><br>
     <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
     <a data-next="plaza">Salir del bar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_bar_muchacha" data-seguro=1>
+    <p>La conversacion se anima. La muchacha es inteligente y tiene una discusion divertida. Parece que le gustas.</p>
+    <a data-next="plaza_calle_muchacha">Sugieres ir a otro bar, y ella esta de acuerdo, salis a la calle..</a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="plaza_calle_muchacha">
+    <p>Caminais por la calle, dirigiendos a un bar cercano del que los dos habeis oido hablar, la conversacion esta animada.</p>
+    <a data-next="alimentarse_muchacha">Aprovechar que nadie mira para atacar la muchacha</a><br>
+    <a data-next="plaza">Disculparse y alejarse</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="alimentarse_muchacha">
+    <p>No le da tiempo a girarse, atacas y extrae su vida con rapidez. Quizas la vuelvas a ver cuando sea un vampiro.</p>
+    <a data-next="plaza">continuar</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar_barra_esperar1" data-seguro=1>
@@ -200,6 +215,12 @@
 
 <div class="pildora ocu" data-estado="plaza_portal_esperar1" data-seguro=1>
     <p>Aqui estoy, en la oscuridad, esperando.</p>
+    <a data-next="alimentarse_portal" data-condicion="victima_en_portal">¡Aparece alguien!</a><br>
+    <a data-next="plaza_portal_esperar2">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="alimentarse_portal" data-seguro=1>
+    <p>Tal vez un vecino, tal vez una visita, igualmente te lanzas sobre la victima con seguridad. La agarras del brazo y lo muerdes extrayendo toda la sangre. Al principio sale despacio, pero luego es un rio imparable de vida. El cuerpo cae al suelo, reseco</p>
     <a data-next="plaza_portal_esperar2">continuar</a><br>
 </div>
 
@@ -224,7 +245,7 @@
 <div class="pildora ocu" data-estado="nido_lavarse" data-seguro="1">
     <p>Limpias tus ropas, las cuelgas para secarse y te pones ropa nueva.</p>
     <p>Tu aspecto ha mejorado mucho.</p>
-    <a data-next="nido_base">continuar</a><br>
+    <a data-next="tu_habitacion">continuar</a><br>
 </div>
 
 
@@ -262,19 +283,15 @@
     </div>
 
     <script id="tabla-miembros-template" type="template">
-        <table border="1">
-            
-            <tr>
-                <td></td>
-                <th>Nombre</th><th></th>
-            </tr>    
-            {{#lista}}
-            <tr>
-                <td>{{rol}}</td>
-                <td>{{nombre}}</td><td><a href="#">Hablar</a></td>
-            </tr>
-            {{/lista}}
-        </table>
+        <p>
+            Los miembros actuales de la familia son 
+            {{#trim_coma}}
+                {{#lista}}
+                {{nombre}} {{rol}}
+                ,
+                {{/lista}}
+            {{/trim_coma}}
+        </p>
     </script>
 
     <p>&nbsp;</p>
@@ -323,27 +340,23 @@
 <div class="pildora ocu" data-estado="elegir_siguiente_patriarca" data-seguro="1">
     <p>El patriarca ha muerto, pero la familia no esta terminada. Elige otro vampiro para ser patriarca de la familia</p>
 
+    <p>Candidatos:</p>
     <div id="tabla-miembros2">
     </div>
 
     <script id="tabla-miembros2-template" type="template">
-        <table border="1">
-            <tr>
-                <th>Nombre</th><th></th>
-            </tr>    
-            {{#lista}}
-            <tr>
-                <td>{{nombre}}</td>
-                <td>
-                    <a href="javascript:void(0)" 
-                        data-key={{KEY}}
-                        onclick="Jugador.elegirSiguientePatriarca(this)">
-                        Elegir
-                    </a>
-                </td>
-            </tr>
-            {{/lista}}
-        </table>
+        <p>
+            Elige: 
+            {{#trim_coma}}
+                {{#lista}}
+                <a href="javascript:void(0)" 
+                data-key={{KEY}}
+                onclick="Jugador.elegirSiguientePatriarca(this)">
+                {{nombre}}
+                </a>,  
+                {{/lista}}
+            {{/trim_coma}}
+        </p>
     </script>
 
     <p>&nbsp;</p>
@@ -371,8 +384,8 @@
 <!-- ----------------------------------------------------- -->
 
 <div class="mostrar-estado ocu">
-    <p>Tu notoriedad es <span class='data-notoriedad'></span></p>
-    <p>Tu prestigio es <span class='data-prestigio'></span></p>
-    <p>Estas <span class='data-hambre'></span></p>
-    <p>Ciclo <span class='data-ciclo'></span></p>
+    <p>Notoriedad <span class='data-notoriedad'></span>.
+    Prestigio <span class='data-prestigio'></span>.
+    Estas <span class='data-hambre'></span>. 
+    Cielo <span class='data-ciclo'></span></p>
 </div>

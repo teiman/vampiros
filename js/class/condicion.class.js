@@ -23,6 +23,12 @@ var Condicion = (function(){
         },
         jugador_sucio:function(){
             return (Jugador.get().sucio);
+        },
+        victima_en_portal:function(){
+            return (Mundo.get()['victima_en_portal']);
+        },
+        una_de_6:function(){
+            return (randomNames.rand()%600<100);
         }
     };
 

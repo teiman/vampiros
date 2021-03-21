@@ -137,6 +137,20 @@ var Eventos = (function(){
             
             //no_hay_miembros
             Bigotes.hidratar("tabla-miembros2", familiaActual);
+        },
+        plaza_portal_esperar1:function(){
+            if((randomNames.rand() % 100)>90){
+                Mundo.get().victima_en_portal = true;
+            }
+        },
+        alimentarse_portal:function(){
+            Jugador.deltaComida(50);        
+            Mundo.nuevoInfectado("portal");
+            Jugador.get().victima_en_portal = false;
+        },
+        alimentarse_muchacha:function(){
+            Jugador.deltaComida(50);        
+            Mundo.nuevoInfectado("bar");
         }
     };
 
