@@ -6,7 +6,7 @@ var Jugador = (function(){
         console.log("[Jugador]["+tag+"] "+msg);
     }
 
-    var Base = {
+    var Jugador = {
         sexo: "?",
         prestigio: 20,
         notoriedad: 10,     
@@ -15,6 +15,7 @@ var Jugador = (function(){
         sucio: false,
         base: "ninguna",
         zombies: 0,
+        actual: null
     };
 
     //Creamos vampiro original 
@@ -25,26 +26,17 @@ var Jugador = (function(){
 
     Mundo.indexarVampiro(v);
     Familia.agnadirVampiro(v.KEY);
-
-    var Jugador = {
-        actual: v
-    };
-
-
-    //Al reiniciar el jugador, no sobreescribimos estos
-    var no_reiniciar = [
-        "apellido","dormidos","comida","base","sucio","zombies","actual"
-    ];
-
-
+    Jugador.actual = v;
 
     function iniciarJugador(){
-        for (var propiedad in Base) {
-            if (Base.hasOwnProperty(propiedad) && no_reiniciar.indexOf(propiedad)==-1) {
-                logme("Jugador","Se ha reiniciado "+propiedad);
-                Jugador[propiedad] =  Base[propiedad];
-            }
-        }
+        Jugador.sexo = "?";
+        Jugador.prestigio = 20;
+        Jugador.notoriedad = 10;     
+        Jugador.dormidos = 0;
+        Jugador.comida = 10;
+        Jugador.sucio = false;
+        Jugador.base = "ninguna";
+        Jugador.zombies = 0;
     }
 
     function get(){

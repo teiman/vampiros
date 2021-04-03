@@ -26,3 +26,15 @@ estadio: apocalipsis zombie
 estadio: sociedad zombie
 estadio: colapso sociedad zombie
 estadio: medievo humano
+estadio: dictadura vampiro 
+
+gameplay: poderes relativos de fuerzas
+gameplay: UI mostrar poderes de fuerzas
+gameplay: notoriedad global 
+gameplay: malus por notoriedad global alta 
+
+gameplay: raid de la policia
+gameplay: raid vampiros enemigos
+gameplay: rebelion zombie  ( num zombies > num vampiros * 10 )
+
+---------

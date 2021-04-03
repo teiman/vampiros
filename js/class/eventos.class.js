@@ -138,6 +138,11 @@ var Eventos = (function(){
             //no_hay_miembros
             Bigotes.hidratar("tabla-miembros2", familiaActual);
         },
+        ver_facciones:function(){
+            var datosFacciones = Mundo.faccionesInfo();
+
+            Bigotes.hidratar("poder-facciones", datosFacciones);            
+        },
         plaza_portal_esperar1:function(){
             if((randomNames.rand() % 100)>90){
                 Mundo.get().victima_en_portal = true;

@@ -19,16 +19,21 @@ body {
 div.pildora {
     margin-top: auto;
     margin-right:auto;
+    margin-bottom:auto;
     padding-left: 10%;
     padding-right: 10%;
-    margin-top: 2em;
     min-height: 60%;
 }
 
 .mostrar-estado {
-    margin-top: 10px;
+    /*margin-top: 10px;
     padding-left: 10%;
-    padding-right: 10%;
+    padding-right: 10%;*/
+
+    position:absolute;
+    left: 10%;
+    bottom: 2em;
+
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -66,7 +71,7 @@ h1,h2 {
 }
 
 .pildora a {
-    padding-top: 0.3em;
+    
     /*padding-bottom: 0.3em;*/
     padding-right: 0.3em;
   
