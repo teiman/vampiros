@@ -36,3 +36,34 @@ TablaVampiros.PORTAL = Coleccion([
 TablaVampiros.CUEVA = Coleccion([
     Profesion.VAGABUNDO
 ]);
+
+var LocalMundo = {
+    nido: {
+        nombre: "El nido",
+        seguro_luz:1,
+    },
+    ciudad: {
+        nombre: "Ciudad",
+        seguro_luz:0,
+    },
+    callejon: {
+        nombre: "Callejon",
+        seguro_luz:0,
+    },
+    portal:{
+        nombre: "Portal",
+        seguro_luz:1,
+    },
+    bar:{
+        nombre: "Bar",
+        seguro_luz:1,
+    },
+    cueva:{
+        nombre: "Cueva",
+        seguro_luz:1,
+    },
+    ether:{
+        nombre: "",
+        seguro_luz:1,
+    }
+};

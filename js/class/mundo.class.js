@@ -15,6 +15,7 @@ var Mundo = (function(){
 
     //Propiedades de inicio, solo se resetean una vez
     var Mundo = {
+        local:"cueva",
         poder: {
             //facciones
             policia: FaccionFactory.create('Policia',100,0), // raids, tomar poder? 
@@ -103,17 +104,9 @@ var Mundo = (function(){
      * @returns boolean
      */
     function esSeguroLuz(estado){
-        var es_seguro = false;
-        var $pildora = $(".pildora[data-estado="+estado+"]");
-        if(!$pildora.length){
-            logme('esSeguroLux',"E: no se encuentra pildora:"+estado);
-            return false;
-        }
-
-        var es_seguro = $pildora.attr("data-seguro");
-
-        if(es_seguro) return true;
-        return false;
+        var seguro = getPropiedadArea('seguro_luz');
+        logme('esSeguroLux',",estado:"+estado+",seguroluz:"+(seguro?'si':'no'));
+        return seguro;
     }
 
     function indexarVampiro(v){
@@ -160,6 +153,20 @@ var Mundo = (function(){
         return Mundo.vampiros[key];
     }
 
+    function getPropiedadArea(prop){
+        var local = Mundo.local;
+
+        if(LocalMundo[local]==undefined){
+            return {nombre:'error', local: local};
+        }
+
+        return LocalMundo[local][prop];
+    }
+
+    function setLocal(local){
+        logme('setLocal',"newlocal:"+local);
+        Mundo.local = local;
+    }
 
     function get(){
         return Mundo;
@@ -169,6 +176,8 @@ var Mundo = (function(){
     iniciarMundo();
 
     return {
+        setLocal:setLocal,
+        getPropiedadArea:getPropiedadArea,
         faccionesInfo:faccionesInfo,
         getvampiro:getvampiro,
         esperarALaNoche:esperarALaNoche,

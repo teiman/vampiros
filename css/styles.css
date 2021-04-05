@@ -10,6 +10,7 @@ html {
 
 html {
     height: 100%;
+    margin-bottom: 2em;
 }
 
 body {
@@ -25,15 +26,15 @@ div.pildora {
     min-height: 60%;
 }
 
+#local {
+    margin-left: 10%;
+}
+
 .mostrar-estado {
-    /*margin-top: 10px;
-    padding-left: 10%;
-    padding-right: 10%;*/
-
-    position:absolute;
-    left: 10%;
-    bottom: 2em;
-
+    padding-left:10%;
+    display:inline-block;
+    width:100%;
+    background-color:#731516;
     font-family: 'Open Sans', sans-serif;
 }
 

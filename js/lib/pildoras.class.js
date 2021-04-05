@@ -31,6 +31,9 @@ var Pildoras = (function(){
             return;
         }
 
+        var local = $pildora.attr("data-local");
+        Mundo.setLocal(local);
+
         //mostramos
         $pildora.removeClass("ocu");
 
@@ -76,7 +79,7 @@ var Pildoras = (function(){
             var src = $(this).attr("src")
 
             $.get(src, function(source) {
-                $(document.body).append( source );
+                $("#root").append( source );
 
                 bindings();//se puede rellamar n veces
             });

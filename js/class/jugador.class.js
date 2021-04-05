@@ -147,6 +147,8 @@ var Jugador = (function(){
 
         var ciclo = Mundo.getHoraDesc();
         $(".data-ciclo").text(ciclo);
+
+        $("#local").text("Lugar: "+ Mundo.getPropiedadArea('nombre') );
     }
 
     logme("inicio","Iniciamos datos por defecto jugador...");
