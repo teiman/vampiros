@@ -1,0 +1,36 @@
+
+<div class="pildora" data-estado="inicio" data-seguro=1>
+    <h2>El sueño acaba... </h2>
+
+    <p>Te frotas los ojos y te levantas. Estabas dormido en el suelo de una cueva. El sitio donde te acostastes tiene tu forma, como un molde de tu cuerpo. Te sacudes quitandote de encima siglos de polvo.</p>
+    <p>Una pregunta asoma a tu mente...  ¿Quien eres?, es todo confuso, te sientes debil.</p>
+
+    <!--<a  data-next="inicio_matriarca1">Una matriarca</a> o -->
+    <a  data-next="inicio_patriarca1">Un vampiro</a>
+</div>
+
+<div class="pildora ocu" data-estado="inicio_matriarca1" data-seguro=1>
+    <p>Eres una matriarca, una madre de vampiros, jefe de familia....  sin familia.  </p>
+    <p>Estas demasido debil ahora mismo, y sola. Necesitas encontrar un sitio seguro y crear una familia fuerte.</p>
+    <a  data-next="recordar_nombre">Recordar nombre</a>
+</div>
+
+<div class="pildora ocu" data-estado="inicio_patriarca1" data-seguro=1>
+    <p>Eres un patriarca, un padre de familia de una familia de vampiros... solo ahora.</p>
+    <p>Esta soledad, hay que terminarla. Crear una familia fuerte. Pero primero hay que buscar un sitio seguro.</p>
+    <a  data-next="recordar_nombre">Recordar nombre</a>
+</div>
+
+<div class="pildora ocu" data-estado="recordar_nombre" data-seguro=1>
+    <p>... y tenia un nombre, ¿Cual es mi nombre?</p>
+    <p>Lo recuerdo...  mi nombre es <span class='data-nombre'></span></p>
+    <p>Poco a poco se empiezan a despertar recuerdos en tu mente, pesares y miedo, pero tambien una sensación de orgullo por lo que eres y quien eres.</p>
+    <a  data-next="recordar_apellido">Recordar apellido</a>
+</div>
+
+<div class="pildora ocu" data-estado="recordar_apellido" data-seguro=1>
+    <p>Mi nombre es <span class='data-nombre'></span> <span class='data-apellido'></span></p>
+    <p>Soy un <span class='data-apellido'></span>, el jefe de la familia <span class='data-apellido'></span>.</p>
+ 
+    <a  data-next="buscar_nido">Buscar un nido seguro</a>
+</div>

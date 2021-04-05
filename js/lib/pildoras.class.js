@@ -70,25 +70,44 @@ var Pildoras = (function(){
 
     }
 
-    $(function(){
-        logme("onload","Iniciando pildoras");
 
+    function cargarExtras(){
+        $("script[type=extrapage]").each(function(){
+            var src = $(this).attr("src")
+
+            $.get(src, function(source) {
+                $(document.body).append( source );
+
+                bindings();//se puede rellamar n veces
+            });
+        }) 
+    }
+
+    function bindings(){
         $("div.pildora").each(function(){
             var $pildora = $(this);
 
             $("a",$pildora).attr("href","javascript:void(0)");
-
-            $("a",$pildora).click(function(){
-                logme("onload","click en pildora");
-
-                var estado = $(this).attr("data-next");
-                moverAEstado(estado);
-            });
+            $("a",$pildora).attr("onclick","Pildoras.clickme(this)");
         });
+    }
+
+    function clickme(este){
+        logme("clickme","click en pildora");
+
+        var estado = $(este).attr("data-next");
+        moverAEstado(estado);
+    }
+
+    $(function(){
+        logme("onload","Iniciando pildoras");
+
+        cargarExtras();
     });
 
     return {
         moverAEstado:moverAEstado,
+        clickme:clickme,
         v:1
     };
 })();

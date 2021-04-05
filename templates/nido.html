@@ -1,0 +1,202 @@
+
+
+
+<div class="pildora ocu" data-estado="buscar_nido" data-seguro=1>
+    <p>Exploras la cueva y encuentras una salida, la salida estaba atrancada por una roca dispuesta para ser facil de retirar desde dentro</p>
+    <p>Esta oscuro, pero no tan oscuro como estas acostumbrado. Hay una ciudad cerca, con tu vision nocturna puedes ver los coches y personas individuales. Hueles el aire en busca de otros vampiros pero no detectas ninguno.  Sin duda el mundo ha cambiado. </p>
+    <p>Caminas lentamente hacia la ciudad, dejando atras edificios abandonados o vacios. Y esos vehiculos que aparentemente hay por todas partes.</p>
+    <p>Despues de caminar bastante tiempo encuentras tres lugares que podrian ser propicios para establecer un nido.</p>
+
+    <p><a  data-next="usar_cloaca">Una cloaca</a>, pestilente pero oscura, conectada con el resto de la ciudad por una red de tuneles.</p>
+
+    <p><a  data-next="usar_fabrica">Una fabrica</a> abandonada hace mucho tiempo, pero aun llena de herramientas, pilas de metal, contenedores y algunos vehiculos desvencijados.</p>
+
+    <p><a  data-next="usar_casona">Una casona</a>, un edificio abandonado pero regio, la hierba creciendo en todos los muros, protegida de los curiosos por un muro de tres metros.</p>
+</div>
+
+<div class="pildora ocu" data-estado="usar_cloaca" data-seguro=1>
+    <p>La cloaca es la decisión mas inteligente, es un sitio seguro donde los humanos no entraran normalmente. Es facil de defender y podrias tener una familia enorme y seguir escondidos.</p>
+    <p>Lastima la pestilencia, no haras muchos amigos durante mucho tiempo, y tus ropas siempre apestaran un poco... no es un olor con el que sea facil vivir, especialmente si eres un vampiro.</p>
+
+    <p>Bueno..  es el momento de buscar comida y engordar la familia</p>
+
+    <a  data-next="plaza">Cazar humanos</a>
+</div>
+
+<div class="pildora ocu" data-estado="usar_fabrica" data-seguro=1>
+    <p>La fabrica podria ser un sitio ideal, una vez pintadas las ventanas de negro para impedir la entrada del sol. Con el metal se podrian construir defensas, o quizas armas. Los materiales estan aqui y algunas herramientas abandonadas.  Hay muchas habitaciones en los almacenes traseros, y en una habitacion cerrada con cadenas encuentras un coche, intentas ponerlo en marcha y funciona. No habias usado antes un coche, pero sabes instintivamente como conducir.</p>
+    <p>Despues de una larga exploración, te tumbas a dormir, duermes todo el dia y te despiertas al anochecer.</p>
+    <p>Es la hora,</p>
+    <a  data-next="plaza">Cazar humanos</a>
+</div>
+
+<div class="pildora ocu" data-estado="usar_casona" data-seguro=1>
+    <p>Un hogar debe ser una palacio, una familia debe tener un hogar elegante y aspirar a mas. Esta casa, una vez reparados algunas ventanas rotas, limpiados los suelos, podria ser una base impresionante desde la que fundar una familia respetada.</p>
+    <p>Este es el mejor lugar, para la mejor familia.</p>
+    <p>¡Empecemos!</p>
+    <a  data-next="plaza">Cazar humanos</a>
+</div>
+
+
+
+<div class="pildora ocu" data-estado="nido" data-seguro=1>    
+    <p data-condicion="nido_es_cloaca">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon desvencijado, en tu lugar favorito.</p>
+    <p data-condicion="nido_es_fabrica">Llegas al nido. Por fin te siente seguro. Te sientas en un banco metalico, en tu lugar favorito.</p>
+    <p data-condicion="nido_es_casona">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon junto al fuego, en tu lugar favorito.</p>
+
+    <p>Bien, ¿Y que hacemos ahora?</p>
+
+    <a data-next="nido_lavarse" data-condicion="jugador_sucio">Lavarse las ropas</a><br>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="nido_lavarse" data-seguro="1">
+    <p>Limpias tus ropas, las cuelgas para secarse y te pones ropa nueva.</p>
+    <p>Tu aspecto ha mejorado mucho.</p>
+    <a data-next="tu_habitacion">continuar</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="nido_base" data-seguro=1>  
+    <h2>Gestionar familia</h2>
+
+    <!--<p>Familia principal: <span class='data-patriarca-apellido'></span></p>-->
+    <p>Patriarca: <strong><span class='data-patriarca-nombre'></span></strong></p>
+    <a data-next="ver_facciones">Informe de facciones</a><br>
+    <a data-next="ver_miembros">Revisar miembros</a><br>
+    <a data-next="tu_habitacion">Ir a tu habitacion</a><br>
+    <br />
+    <a data-next="plaza">Volver a la ciudad</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="tu_habitacion" data-seguro="1">
+    <a data-next="nido_lavarse">Lavarse la cara, darse un ducha y ponerse ropa nueva</a><br>
+    <a data-next="dormir_hasta_la_noche">Dormir hasta la noche</a><br>
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="dormir_hasta_la_noche" data-seguro="1">
+    <p>Dormistes profundamente, y te has despertado revitalizado. La noche acaba de caer. Empieza la caza.</p>
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="ver_facciones" data-seguro=1>
+    <p>Facciones</p> 
+    <table border=0 width='50%'>
+        <thead>
+            <tr>
+                <th align="right">Irritación</th>
+                <th align="center">Facción</th>
+                <th align="left">Poder</th>
+            </tr>
+        </thead>
+        <tbody id="poder-facciones" >
+
+        </tbody>
+    </table>
+
+    <script id="poder-facciones-template" type="template">
+        {{#lista}}
+            <tr>
+                <td align="right">{{enfadococos}}</td>
+                <td align="center">{{nombre}}</td>
+                <td align="left">{{podercocos}}</td>
+            </tr>    
+        {{/lista}}
+    </script>
+    <br>
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="ver_miembros" data-seguro=1>
+    <p id="no_hay_miembros" class="ocu">No hay miembros</p>
+
+    <div id="tabla-miembros">
+    </div>
+
+    <script id="tabla-miembros-template" type="template">
+        <p>
+            Los miembros actuales de la familia son 
+            {{#trim_coma}}
+                {{#lista}}
+                {{nombre}} {{rol}}
+                ,
+                {{/lista}}
+            {{/trim_coma}}
+        </p>
+    </script>
+
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="recibir_infectado" data-seguro=1>
+    <h2>Nuevo candidato</h2>
+    <p>Los infectados por la sangre vampirica buscan a su patriarca instintivamente. Este ha venido hasta aqui.
+    <br>De ti depende el destino de este pobre diablo...</p>
+    <p>
+        Nombre: <span class="data-vnombre"></span><br>
+        Profesión: <span class="data-vprofesion"></span>
+    </p>
+    <p>
+        <a data-next="hacer_dormido">Borrar vampirismo</a>: no es digno de ser un vampiro. Nos servira mejor como un durmiente, borrando su memoria y liberandolo.<br>
+        <a data-next="hacer_esclavo">Convertir en esclavo</a>: puedo necesitar un esclavo sin cerebro que me sirva, fuerza bruta para la colmena.<br>
+        <a data-next="hacer_vampiro">Aceptar vampiro</a>: desde hoy formaras parte de la familia.
+    </p>
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="hacer_dormido" data-seguro=1>
+    <p><span class="data-vnombre"></span> comienza a vomitar un monton de sangre negra y luego se desmaya</p>
+    <p>Con cuidado lo mueves al exterior del nido. Se despertara con amnesia y volvera a su vida normal. <br>Algun dia cuando haga falta podras llamarlo a tu ayuda, y la sangre vampirica se despetara permitiendo darle ordenes.</p>
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="hacer_esclavo" data-seguro=1>
+    <p>Agarras el brazo del candidato y estrujas su muñeca, con tu mente ordenas su mente morir, y sientes como su cerebro se alisa y simplifica</p>
+    <p>Ya no mas <span class="data-vnombre"></span>, ahora solo un siervo de la colmena sin mente. Un zombie.</p>
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="hacer_vampiro" data-seguro=1>
+    <p>Abrazas a <span class="data-vnombre"></span> y le ofreces un lugar en nido. Mediante el enlace mental le transmites tranquilidad y una sensación de proposito.</p>
+    <p>Puedes sentir la calma crecer en su interior. La familia ha crecido.</p>
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+
+<div class="pildora ocu" data-estado="elegir_siguiente_patriarca" data-seguro="1">
+    <p>El patriarca ha muerto, pero la familia no esta terminada. Elige otro vampiro para ser patriarca de la familia</p>
+
+    <p>Candidatos:</p>
+    <div id="tabla-miembros2">
+    </div>
+
+    <script id="tabla-miembros2-template" type="template">
+        <p>
+            Elige: 
+            {{#trim_coma}}
+                {{#lista}}
+                <a href="javascript:void(0)" 
+                data-key={{KEY}}
+                onclick="Jugador.elegirSiguientePatriarca(this)">
+                {{nombre}}
+                </a>,  
+                {{/lista}}
+            {{/trim_coma}}
+        </p>
+    </script>
+
+    <br />
+    <a data-next="nido_base">continuar</a><br>
+</div>
+
+
