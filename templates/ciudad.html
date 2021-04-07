@@ -1,24 +1,25 @@
 
 <div class="pildora ocu" data-estado="plaza" data-local="ciudad">
     <p>Caminas por las calles, cruzando con la gente. Hay alguna gente en los bares, o caminando por las aceras con prisa. Ves vagabundos en los callejones. Es una noche fria y tranquila.</p>
-    <a data-next="plaza_callejon">Ir al callejon</a> <br>
-    <a data-next="plaza_bar">‍Entrar en un bar</a> <br>
-    <a data-next="plaza_portal">Esconderse dentro de un portal</a> <br>
-    <a data-next="volver_nido">Volver al nido</a> 
+    <a data-next="plaza_callejon">Ir al callejon <i class="arrow right"></i></a> <br>
+    <a data-next="plaza_bar">‍Entrar en un bar <i class="arrow right"></i></a> <br>
+    <a data-next="plaza_portal">Esconderse dentro de un portal <i class="arrow right"></i></a> <br>
+
+    <a data-next="volver_nido" class="solapa">Volver al nido</a> 
 </div>
 
 <div class="pildora ocu" data-estado="plaza_callejon" data-local="ciudad">
     <p>El callejon huele mal. Los borrachos lo utilizan para mear, aqui viven algunos vagabundos. Esta llena de cajas y basura. En realidad es un sitio tranquilo, hay menos ruidos que en la calle, y hace menos frio con las salidas de aireación de las maquinas de los locales cercanos</p>
 
     <p>Buscas algun humano, y encuentras un vagabundo dormido</p>
-    <a data-next="comer_vagabundo_callejon">Alimentarse</a>
+    <a data-next="comer_vagabundo_callejon"><i class="arrow right"></i> Alimentarse  <i class="arrow left"></i></a>
 </div>
 
 <div class="pildora ocu" data-estado="comer_vagabundo_callejon" data-local="ciudad">
     <p>Absorves la vida del vagabundo. Cuando acabas el cuerpo del vagabundo se arruga. Lo tiras sobre la basura.</p>
     <p>La sangre agudiza tus sentidos vampiricos. Cada vida en varios kilometros de distancia se te hace presente. Eres consciente de su respiración, del palpitar de sus corazones.</p>
     <p>Y entonces la vision se apaga de nuevo. Solo eres consciente del callejón, y ahora te da asco, decides volver a la calle.</p>
-    <a data-next="plaza">‍continuar</a> <br>
+    <a data-next="plaza"  class="solapa">‍continuar</a> <br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_callejon_policia" data-local="ciudad">
@@ -29,67 +30,67 @@
         El policia parece sosprechar de ti, o quizas es que los policias sospechan de todo el mundo.
         Te giras y sales del callejon. Quizas no tendrias que haber entrado. Estas un poco nervioso.
     </p>
-    <a data-next="plaza">‍continuar</a> 
+    <a data-next="plaza" class="solapa">‍continuar</a> 
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar"  data-local="bar">
     <p>Al entrar en el bar se entrecierran tus ojos. Hay demasiado ruido y demasiada gente. Buscas un lugar tranquilo, y ves uno cerca de la barra, en una esquina.</p>
     <p>La mayor parte de la gente esta sentada en las mesas mirando un partido, de vez en cuando gritan por algo que ocurre en la pantalla que hay en un rincon. Nadie te mira.</p>
     <p>Andas hasta la barra y te sientas.</p>
-    <a data-next="plaza_bar_barra">‍continuar</a>
+    <a data-next="plaza_bar_barra" class="solapa">‍continuar</a>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar_barra"  data-local="bar">
     <p>Hay otras personas en la barra, no te habias fijado antes.</p>
-    <a data-next="plaza_bar_barra_izq">Hablar con la persona de la izquierda</a><br>
-    <a data-next="plaza_bar_barra_dere">Hablar con la persona de la derecha</a><br>
-    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
-    <a data-next="plaza">Salir del bar</a><br>
+    <a data-next="plaza_bar_barra_izq">Hablar con la persona de la izquierda <i class="arrow right"></i></a><br>
+    <a data-next="plaza_bar_barra_dere">Hablar con la persona de la derecha <i class="arrow right"></i></a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo <i class="arrow right"></i></a><br>
+    <a data-next="plaza" class="solapa">Salir</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar_barra_dere"  data-local="bar">
     <p>Intentas iniciar una conversacion con la persona de la derecha, pero ni siquira te presta atención.</p>
-    <a data-next="plaza_bar_barra_izq">Hablar con la persona de la izquierda</a><br>
-    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
-    <a data-next="plaza">Salir del bar</a><br>
+    <a data-next="plaza_bar_barra_izq">Hablar con la persona de la izquierda <i class="arrow right"></i></a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo <i class="arrow right"></i></a><br>
+    <a data-next="plaza" class="solapa">Salir</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar_barra_izq"  data-local="bar">
     <p>Intentas hablar con la persona de la izquierda, pero parece demasiado concentrada en lo suyo.</p>
-    <a data-next="plaza_bar_barra_dere">Hablar con la persona de la derecha</a><br>
-    <a data-next="plaza_bar_muchacha" data-condicion="una_de_6">Hablar con una muchacha</a><br>
-    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
-    <a data-next="plaza">Salir del bar</a><br>
+    <a data-next="plaza_bar_barra_dere">Hablar con la persona de la derecha <i class="arrow right"></i></a><br>
+    <a data-next="plaza_bar_muchacha" data-condicion="una_de_6">Hablar con una muchacha <i class="arrow right"></i></a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo <i class="arrow right"></i></a><br>
+    <a data-next="plaza" class="solapa">Salir</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar_muchacha"  data-local="bar">
     <p>La conversacion se anima. La muchacha es inteligente y tiene una discusion divertida. Parece que le gustas.</p>
-    <a data-next="plaza_calle_muchacha">Sugieres ir a otro bar, y ella esta de acuerdo, salis a la calle..</a><br>
-    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo</a><br>
+    <a data-next="plaza_calle_muchacha">Sugieres ir a otro bar, y ella esta de acuerdo, salis a la calle.. <i class="arrow right"></i></a><br>
+    <a data-next="plaza_bar_barra_esperar1">Seguir bebiendo <i class="arrow right"></i></a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_calle_muchacha"  data-local="ciudad">
     <p>Caminais por la calle, dirigiendos a un bar cercano del que los dos habeis oido hablar, la conversacion esta animada.</p>
-    <a data-next="alimentarse_muchacha">Aprovechar que nadie mira para atacar la muchacha</a><br>
-    <a data-next="plaza">Disculparse y alejarse</a><br>
+    <a data-next="alimentarse_muchacha">Aprovechar que nadie mira para atacar la muchacha <i class="arrow right"></i></a><br>
+    <a data-next="plaza">Disculparse y alejarse <i class="arrow right"></i></a><br>
 </div>
 
 <div class="pildora ocu" data-estado="alimentarse_muchacha"  data-local="ciudad">
     <p>No le da tiempo a girarse, atacas y extrae su vida con rapidez. Quizas la vuelvas a ver cuando sea un vampiro.</p>
-    <a data-next="plaza">continuar</a><br>
+    <a data-next="plaza" class="solapa">continuar</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar_barra_esperar1"  data-local="bar">
     <p>Sigues bebiendo, aunque el alcohol para ti no es nada. De todos modos te gusta el ambiente. Escuchas la musica y el palpitar de los corazones que te rodean.</p>
     <p>Quizas esperaras un poco mas...</p>
-    <a data-next="plaza_bar_barra_esperar2">Seguir bebiendo</a><br>
-    <a data-next="plaza">Salir del bar</a><br>
+    <a data-next="plaza_bar_barra_esperar2">Seguir bebiendo <i class="arrow right"></i></a><br>
+    <a data-next="plaza" class="solapa">Salir</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_bar_barra_esperar2"  data-local="bar">
     <p>Sigues esperando...</p>
-    <a data-next="plaza_bar_barra">Seguir bebiendo</a><br>
-    <a data-next="plaza">Salir del bar</a><br>
+    <a data-next="plaza_bar_barra">Seguir bebiendo <i class="arrow right"></i></a><br>
+    <a data-next="plaza" class="solapa">Salir</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_expulsado_bar"  data-local="bar">
@@ -97,7 +98,7 @@
     <p>La gente te mira con repugnancia.</p>
     <p>Tus ropas estan sucias, ¿Quizas es por eso?, apestas a barro y sangre.</p>
 
-    <a data-next="plaza">continuar</a><br>
+    <a data-next="plaza" class="solapa">continuar</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_portal"  data-local="portal">
@@ -105,24 +106,23 @@
     <p>Es aburrido, pero aqui escondido en las sombras nadie te ve, nadie te observa.</p>
     <p>Puedes esperar... o volver a la calle</p>
 
-    <a data-next="plaza_portal_esperar1">continuar</a><br>
+    <a data-next="plaza_portal_esperar1" class="solapa">continuar</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_portal_esperar1"  data-local="ciudad">
     <p>Aqui estoy, en la oscuridad, esperando.</p>
-    <a data-next="alimentarse_portal" data-condicion="victima_en_portal">¡Aparece alguien!</a><br>
-    <a data-next="plaza_portal_esperar2">continuar</a><br>
+    <a data-next="alimentarse_portal" data-condicion="victima_en_portal">¡Aparece alguien! <i class="arrow right"></i></a><br>
+    <a data-next="plaza_portal_esperar2" class="solapa">continuar</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="alimentarse_portal"  data-local="ciudad">
     <p>Tal vez un vecino, tal vez una visita, igualmente te lanzas sobre la victima con seguridad. La agarras del brazo y lo muerdes extrayendo toda la sangre. Al principio sale despacio, pero luego es un rio imparable de vida. El cuerpo cae al suelo, reseco</p>
-    <a data-next="plaza_portal_esperar2">continuar</a><br>
+    <a data-next="plaza_portal_esperar2" class="solapa">continuar</a><br>
 </div>
 
 <div class="pildora ocu" data-estado="plaza_portal_esperar2"  data-local="portal">
     <p>Esperando..</p>
-    <a data-next="plaza_portal_esperar1">continuar</a><br>
-    <a data-next="plaza">Salir del portal</a><br>
+    <a data-next="plaza_portal_esperar1" class="solapa">continuar</a>
 </div>
 
 
@@ -130,5 +130,5 @@
     <p data-condicion="nido_es_cloaca">Abres una alcantarilla y saltas dentro.</p>
     <p data-condicion="nido_es_fabrica">Trepas a un camion, y desde este saltas a otro en marcha, siempre en direccion a las afuera.</p>
     <p data-condicion="nido_es_casona">Tomas un coche y conduces al nido.</p>
-    <a data-next="nido">continuar</a><br>
+    <a data-next="nido" class="solapa">continuar</a><br>
 </div

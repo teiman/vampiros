@@ -91,3 +91,48 @@ hr {
     border:1px solid #400;
 }
 
+a.solapa {
+    display:block;
+    width:100%;
+    height:2em;
+    padding-left:0.8em;
+    padding-top:0.4em;
+    border-top: 1px solid orange;
+    border-left: 1px solid orange;
+    border-right: 1px solid orange;
+
+    border-radius: 8px;
+    background: linear-gradient(180deg, #a34800 0%, rgba(115,21,22,1) 30%);
+    background: linear-gradient(170deg, #333 0%, rgba(115,21,22,1) 30%);
+}
+
+a.solapa:hover {
+    border:2px solid;
+}
+
+.arrow {
+    border: solid red;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
