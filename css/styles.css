@@ -1,21 +1,21 @@
 
-
-html {
-    background-color: #731516;
-}
-
 * {
     color: red;
 }
 
 html {
-    height: 100%;
-    margin-bottom: 2em;
+    padding:0px;
+    background-color: #731516;
 }
 
 body {
-    height: 100%;
+    margin:0px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #731516;
+    background: linear-gradient(180deg, #222 0%, rgba(115,21,22,1) 100%);
 }
+
 
 div.pildora {
     margin-top: auto;
@@ -31,14 +31,16 @@ div.pildora {
 }
 
 .mostrar-estado {
+    margin-top: 2em;
     padding-left:10%;
-    display:inline-block;
+    display:block;
     width:100%;
     background-color:#731516;
     font-family: 'Open Sans', sans-serif;
 }
 
 .mostrar-estado p {
+  
     font-family: 'Open Sans', sans-serif;
     margin:0px;
 
@@ -135,4 +137,25 @@ a.solapa:hover {
   .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+  }
+
+  #local {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color:#444;
+
+    text-shadow:  0 0 2px #333;
+  }
+
+  .npctalk {
+    font-style: italic;
+  }
+
+  strong {
+      font-weight:bold;
+  }
+
+  strong * {
+      font-weight: bold!important;
   }

@@ -38,3 +38,11 @@ gameplay: raid vampiros enemigos
 gameplay: rebelion zombie  ( num zombies > num vampiros * 10 )
 
 ---------
+
+area: el sueño del cazador, area dentro de un sueño donde hablas con npc, con tutoriales
+npc del sueño del cazador: la matriarca, aconseja la conquista
+npc del sueño del cazador: el anciano, tutorial de ayuda, explica como jugar, y el lore 
+npc del sueño del cazador: la estatua, aconsejar como hacer en mitad de un gobierno vampiro (Solo disponible entonces)
+npc del sueño del czador: ella, la araña, aconseja consumir todo
+
+idea: los npc del sueño del cazador pueden cambiar por eventos, aparecen unos u otros, algunos se pueden encarnar y ayudar en el mundo... seria como invocar un demonio, o hacer un pacto con un demonio

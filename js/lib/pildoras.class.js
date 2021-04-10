@@ -71,6 +71,7 @@ var Pildoras = (function(){
             }
         });
 
+        document.title = "#"+estado;
     }
 
 

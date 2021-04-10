@@ -65,5 +65,9 @@ var LocalMundo = {
     ether:{
         nombre: "",
         seguro_luz:1,
+    },
+    suegno:{
+        nombre: "El sueño",
+        seguro_luz: 1
     }
 };
