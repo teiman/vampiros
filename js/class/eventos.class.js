@@ -1,5 +1,5 @@
 /**
- *  Eventos que pueden ocurrir 
+ *  Acciones de areas del IF 
  */
 var Eventos = (function(){
     // ----------------------
@@ -62,7 +62,7 @@ var Eventos = (function(){
             Jugador.deltaPrestigio(-1);
         },
         plaza_bar:function(){
-            if(Jugador.get().prestigio<5){
+            if(Jugador.get().prestigio<5){                
                 Pildoras.moverAEstado("plaza_expulsado_bar");
                 return;
             }
@@ -72,6 +72,7 @@ var Eventos = (function(){
             Jugador.deltaPrestigio(0.01); // quizas es demasiado facil? simplemente bebiendo en el bar
                 // te familiarizas con la ciudad, y nadie espera que alguien bebiendo alcohol sea un vampiro
                 // es un buen disfraz
+            GameDirector.broadcast({action:"visto_policia"});    
         },
         nido_lavarse:function(){
             Jugador.get().sucio = false;
@@ -116,12 +117,17 @@ var Eventos = (function(){
         hacer_esclavo:function(){
             Jugador.delta("zombies",1);
             Familia.eliminarCandidato();
+
+            GameDirector.broadcast({action:"new_zombie"}); 
         },
         hacer_vampiro:function(){
             logme("hacer_vampiro","se va a intentar convertir candidato en familiar");
+            
             var key = Familia.get().candidato.KEY;
             Familia.get().candidato = null;
             Familia.agnadirVampiro(key);
+
+            GameDirector.broadcast({action:"new_vampiro"}); 
         },
         dormir_hasta_la_noche:function(){
             Mundo.esperarALaNoche();

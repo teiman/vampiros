@@ -1,3 +1,4 @@
+
 /**
  * Control del patriarca activo.
  */

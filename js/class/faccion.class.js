@@ -51,16 +51,17 @@ var FaccionFactory = (function(){
 
     Object.defineProperty(Faccion.prototype, 'enfadococos', {
         get: function() {
-            var num = Math.ceil(Math.log(this.enfado+1))+1;
-            console.log("[enfadococos],enfado:"+this.enfado+",num:"+num);
-            var str = "";
-            for(var t=0;t<num;t++){
-                str += "⬤";
+                var num = Math.ceil(Math.log(this.enfado+1))+1;
+                console.log("[enfadococos],enfado:"+this.enfado+",num:"+num);
+                var str = "";
+                for(var t=0;t<num;t++){
+                    str += "⬤";
+                }
+                
+                return str;
             }
-            return str;
         }
-    }
-);   
+    );   
 
     return {
         create:create,

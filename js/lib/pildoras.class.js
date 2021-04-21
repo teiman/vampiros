@@ -99,6 +99,8 @@ var Pildoras = (function(){
     function clickme(este){
         logme("clickme","click en pildora");
 
+        var action = $(este).attr("data-action");
+
         var estado = $(este).attr("data-next");
         moverAEstado(estado);
     }

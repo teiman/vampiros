@@ -1,3 +1,7 @@
+
+/**
+ * Gestion de la familia vampirica
+ */
 var Familia = (function(){
     function logme(tag,msg){
         console.log("[Familia]["+tag+"] "+msg);

@@ -46,3 +46,5 @@ npc del sueño del cazador: la estatua, aconsejar como hacer en mitad de un gobi
 npc del sueño del czador: ella, la araña, aconseja consumir todo
 
 idea: los npc del sueño del cazador pueden cambiar por eventos, aparecen unos u otros, algunos se pueden encarnar y ayudar en el mundo... seria como invocar un demonio, o hacer un pacto con un demonio
+
+construir: laboratio de maldiciones

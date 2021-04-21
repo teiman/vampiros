@@ -37,7 +37,7 @@
 
 
 
-<div class="pildora ocu" data-estado="nido"   data-local="nido">    
+<div class="pildora ocu" data-estado="nido"  data-local="nido">    
     <p data-condicion="nido_es_cloaca">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon desvencijado, en tu lugar favorito.</p>
     <p data-condicion="nido_es_fabrica">Llegas al nido. Por fin te siente seguro. Te sientas en un banco metalico, en tu lugar favorito.</p>
     <p data-condicion="nido_es_casona">Llegas al nido. Por fin te siente seguro. Te sientas en un sillon junto al fuego, en tu lugar favorito.</p>
@@ -107,9 +107,54 @@
         {{/lista}}
     </script>
     <br>
+
+
+    <!--
+    1 please a group
+    2 - please all groups
+    3 - improve your chances
+    4 - raise some cash
+    5 - strangthen a group -->
+
+    <a data-next="nido__favorecer_faccion">Favorecer faccion</a><br>   
+    <a data-next="nido__favorecer_todo_el_mundo">Gestos politicos</a><br>  
+    <a data-next="nido__aumentar_poder">Aumentar tu poder</a><br>  
+    <a data-next="nido__obtener_sangre">Conseguir sangre</a><br>  
+    <a data-next="nido__fortalecer_faccion">Apoyar facción</a><br>  
+
     <a data-next="nido_base" class="solapa">continuar</a><br>
 </div>
 
+<div class="pildora ocu" data-estado="nido__favorecer_faccion"  data-local="nido">
+    <a data-next="ver_facciones" data-action="nombrar_sucesor">Nombrar sucesor</a><br>
+    <a data-next="ver_facciones" data-action="tecnicas_curacion">Enseñar tecnicas de autocuracion</a><br>
+    <a data-next="ver_facciones" data-action="dar_poder_familia">Dar mas poder a los familiares</a><br>
+    <a data-next="ver_facciones" data-action="armar_zombies">Armar los zombies</a><br>
+    <a data-next="ver_facciones" data-action="dar_vampirismo_rico">Hacer vampiro millonario</a><br>
+    <a data-next="ver_facciones" data-action="hacer_pacto">Hacer pacto con un demonio menor</a><br>
+    <a data-next="ver_facciones" class="solapa">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="nido__favorecer_todo_el_mundo"  data-local="nido">
+    <a data-next="ver_facciones" data-action="nombrar_sucesor">Nombrar sucesor</a><br>
+    <a data-next="ver_facciones" data-action="borrar_memorias">Borrado selectivo de memorias</a><br>
+    <a data-next="ver_facciones" data-action="desdentar_zombies">Desdentar zombies</a><br>
+    <a data-next="ver_facciones" class="solapa">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="nido__aumentar_poder"  data-local="nido">
+    <a data-next="ver_facciones" data-action="nombrar_sucesor">Nombrar sucesor</a><br>
+    <a data-next="ver_facciones" data-action="borrar_memorias">Borrado selectivo de memorias</a><br>
+    <a data-next="ver_facciones" data-action="desdentar_zombies">Desdentar zombies</a><br>
+    <a data-next="ver_facciones" class="solapa">continuar</a><br>
+</div>
+
+<div class="pildora ocu" data-estado="nido__fortalecer_faccion"  data-local="nido">
+    <a data-next="ver_facciones" data-action="nombrar_sucesor">Nombrar sucesor</a><br>
+    <a data-next="ver_facciones" data-action="borrar_memorias">Borrado selectivo de memorias</a><br>
+    <a data-next="ver_facciones" data-action="desdentar_zombies">Desdentar zombies</a><br>
+    <a data-next="ver_facciones" class="solapa">continuar</a><br>
+</div>
 
 <div class="pildora ocu" data-estado="ver_miembros"   data-local="nido">
     <p id="no_hay_miembros" class="ocu">No hay miembros</p>
